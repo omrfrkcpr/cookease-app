@@ -20,3 +20,7 @@
 .honey-dew-5-rgba {
   color: rgba(232, 51, 48, 1);
 }
+
+a {
+  text-decoration: none;
+}

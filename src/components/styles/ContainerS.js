@@ -10,4 +10,8 @@ export const NavbarContainerS = styled.div`
   align-items: center;
 `;
 
+export const FooterContainerS = styled(NavbarContainerS)`
+  padding: 3rem 2rem;
+`;
+
 export default ContainerS;

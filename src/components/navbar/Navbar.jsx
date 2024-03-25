@@ -8,6 +8,7 @@ import { NavbarLi, NavbarUl } from "./NavbarS";
 const linkStyle = {
   textDecoration: "none",
   color: "rgba(255, 102, 45, 1)",
+  fontWeight: "bolder",
 };
 
 const Navbar = () => {
