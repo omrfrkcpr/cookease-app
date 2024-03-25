@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import AppRouter from "./router/AppRouter";
 import { ThemeProvider } from "styled-components";
+import RecipeProvider from "./context/RecipeProvider";
 
 const globalStyle = {
   // responsive: "750px",
@@ -10,9 +11,11 @@ const globalStyle = {
 
 function App() {
   return (
-    <ThemeProvider theme={globalStyle}>
-      <AppRouter />
-    </ThemeProvider>
+    <RecipeProvider>
+      <ThemeProvider theme={globalStyle}>
+        <AppRouter />
+      </ThemeProvider>
+    </RecipeProvider>
   );
 }
 

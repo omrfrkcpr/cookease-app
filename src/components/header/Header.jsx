@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import { HeaderH1 } from "./HeaderS";
+import { HeaderContainerS } from "../styles/ContainerS";
+import Form from "../form/Form";
 
 const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <HeaderContainerS>
+      <HeaderH1>CookEase App</HeaderH1>
+      <Form />
+    </HeaderContainerS>
+  );
+};
 
-export default Header
+export default Header;

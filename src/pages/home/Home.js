@@ -1,13 +1,14 @@
 import React from "react";
 import Header from "../../components/header/Header";
-import Form from "../../components/form/Form";
+import { HomePageContainerS } from "../../components/styles/ContainerS";
+import RecipeCard from "../../components/recipeCard/RecipeCard";
 
 const Home = () => {
   return (
-    <div>
+    <HomePageContainerS>
       <Header />
-      <Form />
-    </div>
+      <RecipeCard />
+    </HomePageContainerS>
   );
 };
 
