@@ -5,38 +5,37 @@ import { Link, useLocation } from "react-router-dom";
 import { NavbarContainerS } from "./styles/ContainerS";
 import styled from "styled-components";
 
+const linkStyle = {
+  textDecoration: "none",
+  color: "rgba(0,0,0, 0.8)",
+  fontWeight: "bolder",
+};
+
+const NavbarUl = styled.ul`
+  display: flex;
+  gap: 2rem;
+  height: 2rem;
+  justify-content: center;
+  align-items: center;
+`;
+
+const NavbarLi = styled.li`
+  list-style-type: none;
+  font-size: 1.5rem;
+
+  @media screen and (max-width: ${({ theme }) => theme.responsive}) {
+    font-size: 1rem;
+  }
+`;
+
+const NavbarLink = styled.span`
+  color: ${({ isActive }) => (isActive ? "white" : "inherit")};
+
+  &:hover {
+    color: white;
+  }
+`;
 const Navbar = () => {
-  const linkStyle = {
-    textDecoration: "none",
-    color: "rgba(0,0,0, 0.8)",
-    fontWeight: "bolder",
-  };
-
-  const NavbarUl = styled.ul`
-    display: flex;
-    gap: 2rem;
-    height: 2rem;
-    justify-content: center;
-    align-items: center;
-  `;
-
-  const NavbarLi = styled.li`
-    list-style-type: none;
-    font-size: 1.5rem;
-
-    @media screen and (max-width: ${({ theme }) => theme.responsive}) {
-      font-size: 1rem;
-    }
-  `;
-
-  const NavbarLink = styled.span`
-    color: ${({ isActive }) => (isActive ? "white" : "inherit")};
-
-    &:hover {
-      color: white;
-    }
-  `;
-
   // get current url pathname from location
   const location = useLocation();
 

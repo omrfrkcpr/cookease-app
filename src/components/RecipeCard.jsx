@@ -9,12 +9,21 @@ import { RecipeContextComp } from "../context/RecipeProvider";
 const RecipeCard = ({ recipe }) => {
   const navigate = useNavigate();
   const [heart, setHeart] = useState(false);
-  const { favorites, setFavorites } = RecipeContextComp;
+  const { favorites, setFavorites } = RecipeContextComp();
 
   const { label, image } = recipe;
 
   const handleFavorite = () => {
-    setHeart(!heart);
+    setHeart(true);
+    // const updatedFavorites = favorites || [];
+    // updatedFavorites.push({ label, image });
+    // setFavorites(updatedFavorites);
+  };
+
+  const handleUnFavorite = () => {
+    setHeart(false);
+    // const updatedFavorites = favorites.filter((item) => item.label !== label);
+    // setFavorites(updatedFavorites);
   };
 
   return (
@@ -45,13 +54,23 @@ const RecipeCard = ({ recipe }) => {
         >
           View Details
         </RecipeCardBtn>
-        <Heart
-          size={32}
-          color="#e84b11"
-          weight={heart ? "fill" : "regular"}
-          style={{ marginLeft: ".5rem" }}
-          onClick={handleFavorite}
-        />
+        {heart ? (
+          <Heart
+            size={32}
+            color="#e84b11"
+            weight={"fill"}
+            style={{ marginLeft: ".5rem" }}
+            onClick={handleUnFavorite}
+          />
+        ) : (
+          <Heart
+            size={32}
+            color="#e84b11"
+            weight={"regular"}
+            style={{ marginLeft: ".5rem" }}
+            onClick={handleFavorite}
+          />
+        )}
       </div>
     </RecipeCardContainerS>
   );

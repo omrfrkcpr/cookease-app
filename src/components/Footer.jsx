@@ -6,39 +6,39 @@ import { IoMail } from "react-icons/io5";
 import { FooterContainerS } from "./styles/ContainerS";
 import styled from "styled-components";
 
-const Footer = () => {
-  const FooterUl = styled.ul`
-    display: flex;
-    gap: 2rem;
-    height: 1rem;
-    justify-content: right;
-    align-items: center;
-    width: 50%;
+const FooterUl = styled.ul`
+  display: flex;
+  gap: 2rem;
+  height: 1rem;
+  justify-content: right;
+  align-items: center;
+  width: 50%;
 
-    @media screen and (max-width: ${({ theme }) => theme.responsive}) {
-      gap: 1rem;
-      margin: auto;
-      text-align: center;
-      justify-content: center;
-      padding-right: 1.5rem;
-    }
-  `;
+  @media screen and (max-width: ${({ theme }) => theme.responsive}) {
+    gap: 1rem;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    padding-right: 1.5rem;
+  }
+`;
 
-  const FooterLi = styled.li`
-    list-style-type: none;
-    font-size: 2.5rem;
-    width: 40px;
+const FooterLi = styled.li`
+  list-style-type: none;
+  font-size: 2.5rem;
+  width: 40px;
+  &:hover {
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.responsive}) {
+    font-size: 1.5rem;
     &:hover {
-      font-size: 2rem;
+      font-size: 1rem;
     }
-
-    @media screen and (max-width: ${({ theme }) => theme.responsive}) {
-      font-size: 1.5rem;
-      &:hover {
-        font-size: 1rem;
-      }
-    }
-  `;
+  }
+`;
+const Footer = () => {
   return (
     <FooterContainerS>
       <div className="copyright">

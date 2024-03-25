@@ -4,6 +4,15 @@ import { SearchBtn } from "./styles/ButtonS";
 import { RecipeContextComp } from "../context/RecipeProvider";
 import { FormContainerS } from "./styles/ContainerS";
 
+const InputS = styled.input`
+  width: 80%;
+  margin: 0.1rem;
+  padding: 0.1rem 0.5rem;
+  &:focus {
+    outline: none;
+  }
+`;
+
 const Form = () => {
   const { query, setQuery, setSearch } = RecipeContextComp();
 
@@ -12,15 +21,6 @@ const Form = () => {
     setSearch(query);
     setQuery("");
   };
-
-  const InputS = styled.input`
-    width: 80%;
-    margin: 0.1rem;
-    padding: 0.1rem 0.5rem;
-    &:focus {
-      outline: none;
-    }
-  `;
 
   return (
     <FormContainerS>
