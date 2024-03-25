@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
-import { HomePageContainerS } from "../components/styles/ContainerS";
+import { PageContainerS } from "../components/styles/ContainerS";
 import { RecipeContextComp } from "../context/RecipeProvider";
 import { Row, Col } from "react-bootstrap";
 import RecipeCard from "../components/RecipeCard";
@@ -10,7 +10,7 @@ const Home = () => {
   const { recipes } = RecipeContextComp();
 
   return (
-    <HomePageContainerS>
+    <PageContainerS>
       <Header />
       <Row
         style={{
@@ -26,7 +26,7 @@ const Home = () => {
         ))}
       </Row>
       {recipes.length !== 0 && <Footer />}
-    </HomePageContainerS>
+    </PageContainerS>
   );
 };
 

@@ -43,7 +43,7 @@ export const HeaderContainerS = styled.div`
   border-radius: 15px;
 `;
 
-export const HomePageContainerS = styled.div`
+export const PageContainerS = styled.div`
   min-height: calc(100vh - 244px);
   background-image: linear-gradient(to bottom, #feada6 20%, #f5efef 30%);
   padding-top: 1rem;
