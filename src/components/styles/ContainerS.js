@@ -5,7 +5,7 @@ export const NavbarContainerS = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background-color: rgba(255, 198, 99, 1);
+  background-image: linear-gradient(to top, #feada6 40%, #f5efef 110%);
   align-items: center;
 
   @media screen and (max-width: ${({ theme }) => theme.responsive}) {
@@ -45,7 +45,7 @@ export const HeaderContainerS = styled.div`
 
 export const HomePageContainerS = styled.div`
   min-height: calc(100vh - 244px);
-  background-color: rgba(232, 225, 113, 1);
+  background-image: linear-gradient(to bottom, #feada6 20%, #f5efef 30%);
   padding-top: 1rem;
 `;
 
@@ -58,7 +58,7 @@ export const RecipeCardContainerS = styled.div`
   padding: 1rem;
   height: 400px;
   text-align: center;
-  background-color: #dbd9c7;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
   border: 2px solid grey;
   border-radius: 15px;
   max-width: 350px;

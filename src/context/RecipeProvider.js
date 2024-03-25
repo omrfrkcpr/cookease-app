@@ -8,6 +8,7 @@ const RecipeProvider = ({ children }) => {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("");
   const [search, setSearch] = useState("");
+  const [favorites, setFavorites] = useState([]);
 
   const APP_ID = "716bd830";
   const API_KEY = "7445e3656ca5026352eee8a94611c23e";
@@ -37,7 +38,7 @@ const RecipeProvider = ({ children }) => {
 
   return (
     <RecipeContext.Provider
-      value={{ recipes, setRecipes, query, setQuery, setSearch }}
+      value={{ recipes, setRecipes, query, setQuery, setSearch, favorites, setFavorites }}
     >
       {children}
     </RecipeContext.Provider>
