@@ -20,4 +20,15 @@ export const LogoS = styled.img`
   background-color: #ff6318;
 `;
 
+export const RecipeCardImg = styled.img`
+  width: 250px;
+  height: 250px;
+  object-position: center;
+  object-fit: cover;
+  &:hover {
+    transform: scale(1.2);
+    transition-duration: 1s;
+  }
+`;
+
 export default ImageS;

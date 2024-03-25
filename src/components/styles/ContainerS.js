@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import banner from "../../assets/banner.jpg";
 
 const ContainerS = styled.div``;
 
@@ -19,12 +20,32 @@ export const HeaderContainerS = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  background-color: rgba(232, 225, 113, 1);
+  background-image: url(${banner});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 2rem;
+  padding: 2rem 0;
+  border-radius: 15px;
 `;
 
 export const HomePageContainerS = styled.div`
-  height: calc(100vh - 146px);
+  height: 100%;
   background-color: rgba(232, 225, 113, 1);
+  padding-top: 1rem;
+`;
+
+export const RecipeCardContainerS = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  height: 400px;
+  text-align: center;
+  background-color: #dbd9c7;
+  border: 2px solid grey;
+  border-radius: 15px;
 `;
 
 export default ContainerS;

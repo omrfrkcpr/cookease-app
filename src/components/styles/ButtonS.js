@@ -15,6 +15,26 @@ const ButtonS = styled.button`
   } */
 `;
 
+export const RecipeCardBtn = styled.button`
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  background-color: rgb(247, 128, 85);
+  &:hover {
+    background-color: rgb(232, 75, 17);
+    color: white;
+    transition-duration: 0.5s;
+  }
+`;
+
+export const SearchBtn = styled.button`
+  border: none;
+  padding: 0.1rem 0.8rem;
+  font-weight: bolder;
+  color: #ff6318;
+`;
+
 // export const DetailButton = styled(ButtonSSS)`
 //   color: tomato;
 //   background-color: white;
