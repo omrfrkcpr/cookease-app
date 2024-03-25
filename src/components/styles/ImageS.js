@@ -18,6 +18,11 @@ export const LogoS = styled.img`
   height: 110px;
   border-radius: 50%;
   background-color: #ff6318;
+
+  @media screen and (max-width: ${({ theme }) => theme.responsive}) {
+    width: 100px;
+    height: 80px;
+  }
 `;
 
 export const RecipeCardImg = styled.img`

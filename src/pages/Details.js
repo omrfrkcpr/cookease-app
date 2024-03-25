@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { DetailCardContainerS } from "../components/styles/ContainerS";
 
 const Details = () => {
   const {
@@ -7,13 +8,20 @@ const Details = () => {
   } = useLocation();
   const navigate = useNavigate();
 
-  const {} = recipe;
+  const { label, calories, image, ingredients } = recipe;
 
   return (
-    <div>
-      Details
+    <DetailCardContainerS>
+      <img src={image} alt={`${label}-img`} />
+      <h1>{label}</h1>
+      <ol>
+        {ingredients.map((ingredient) => (
+          <li>{ingredient.text}</li>
+        ))}
+      </ol>
+      <p>Calorie = {Math.trunc(calories)}</p>
       <button onClick={() => navigate(-1)}>Go Back</button>
-    </div>
+    </DetailCardContainerS>
   );
 };
 

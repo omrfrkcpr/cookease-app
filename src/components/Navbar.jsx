@@ -23,11 +23,15 @@ const Navbar = () => {
   const NavbarLi = styled.li`
     list-style-type: none;
     font-size: 1.5rem;
+
+    @media screen and (max-width: ${({ theme }) => theme.responsive}) {
+      font-size: 1rem;
+    }
   `;
   return (
     <NavbarContainerS>
       <div className="left">
-        <LogoS src={logo} alt="logo" width="150px" />
+        <LogoS src={logo} alt="logo" />
       </div>
       <NavbarUl className="right">
         <NavbarLi>
