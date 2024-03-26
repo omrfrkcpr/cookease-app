@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import banner from "../../assets/banner.jpg";
+import bgImg from "../../assets/details-bg.jpg";
+import aboutBg from "../../assets/about-bg.jpg";
 
 export const NavbarContainerS = styled.div`
   display: flex;
@@ -45,8 +47,11 @@ export const HeaderContainerS = styled.div`
 
 export const PageContainerS = styled.div`
   min-height: calc(100vh - 236px);
-  background-image: linear-gradient(to bottom, #feada6 20%, #f5efef 30%);
-  padding-top: 1rem;
+  background-image: ${(props) =>
+    props.about
+      ? `url(${aboutBg})`
+      : "linear-gradient(to bottom, #feada6 20%, #f5efef 30%)"};
+  padding: 1rem;
 `;
 
 export const RecipeCardContainerS = styled.div`
@@ -63,6 +68,15 @@ export const RecipeCardContainerS = styled.div`
   border-radius: 15px;
   max-width: 350px;
   margin: auto;
+`;
+
+export const DetailsContainerS = styled.div`
+  background-image: url(${bgImg});
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100vh - 236px);
 `;
 
 export const DetailCardContainerS = styled.div`
@@ -96,4 +110,13 @@ export const EmptyContainerS = styled.div`
   min-height: calc(100vh - 236px);
   background-color: #1394b2;
   text-align: center;
+`;
+
+export const AboutContainerS = styled.div`
+  width: 90%;
+  margin: auto;
+  /* backdrop-filter: blur(10px); */
+  box-shadow: 2px 2px 2px gray;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1rem;
 `;

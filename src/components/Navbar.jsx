@@ -18,6 +18,11 @@ const NavbarUl = styled.ul`
   margin-top: 2rem;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
+    gap: 1rem;
+    height: 1.5rem;
+    margin-top: 0rem;
+  }
 `;
 
 const NavbarLi = styled.li`
@@ -25,12 +30,12 @@ const NavbarLi = styled.li`
   font-size: 1.5rem;
 
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
 `;
 
 const NavbarLink = styled.span`
-  color: ${({ isActive }) => (isActive ? "white" : "inherit")};
+  color: ${({ isActive }) => (isActive ? "white" : "#6b675f")};
 
   &:hover {
     color: white;

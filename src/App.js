@@ -1,6 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
 import AppRouter from "./router/AppRouter";
 import { ThemeProvider } from "styled-components";
 import RecipeProvider from "./context/RecipeProvider";
@@ -8,7 +7,6 @@ import RecipeProvider from "./context/RecipeProvider";
 const globalStyle = {
   responsiveSmall: "700px",
   responsiveLarge: "1000px",
-  // shadow: "0 10px 10px rgba(0,0,0,0.15)",
 };
 
 function App() {

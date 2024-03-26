@@ -4,12 +4,12 @@ import { RecipeCardContainerS } from "./styles/ContainerS";
 import { RecipeCardImg } from "./styles/ImageS";
 import { RecipeCardBtn } from "./styles/ButtonS";
 import { Heart } from "@phosphor-icons/react";
-import { RecipeContextComp } from "../context/RecipeProvider";
+// import { RecipeContextComp } from "../context/RecipeProvider";
 
 const RecipeCard = ({ recipe }) => {
   const navigate = useNavigate();
   const [heart, setHeart] = useState(false);
-  const { favorites, setFavorites } = RecipeContextComp();
+  // const { favorites, setFavorites } = RecipeContextComp();
 
   const { label, image } = recipe;
 

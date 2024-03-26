@@ -1,7 +1,7 @@
 import React from "react";
 import { RecipeCardContainerS } from "./styles/ContainerS";
 import { RecipeCardImg } from "./styles/ImageS";
-import { Heart } from "@phosphor-icons/react";
+// import { Heart } from "@phosphor-icons/react";
 
 const Card = ({ recipe }) => {
   const { label, image } = recipe;

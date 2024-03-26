@@ -13,14 +13,13 @@ import Login from "../pages/Login";
 import NotFound from "../components/NotFound";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { RecipeContextComp } from "../context/RecipeProvider";
 
 const AppRouter = () => {
-  const { recipes } = RecipeContextComp();
   return (
     <div>
       <Router>
         <Navbar />
+
         <Outlet />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -30,7 +29,7 @@ const AppRouter = () => {
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        {recipes.length === 0 && <Footer />}
+        <Footer />
       </Router>
     </div>
   );

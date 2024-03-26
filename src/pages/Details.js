@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { DetailCardContainerS } from "../components/styles/ContainerS";
+import {
+  DetailCardContainerS,
+  DetailsContainerS,
+} from "../components/styles/ContainerS";
 import { DetailsCardImg } from "../components/styles/ImageS";
 import { GoBackBtn } from "../components/styles/ButtonS";
-import bgImg from "../assets/details-bg.jpg";
 import styled from "styled-components";
 import axios from "axios";
 import { Globe } from "@phosphor-icons/react";
@@ -27,12 +29,6 @@ const Details = () => {
   } = recipe;
 
   const { ENERGY_CAL, FAT, CHOCDF, PROCNT, CHOLE, SUGAR } = totalNutrients;
-
-  const DetailsContainerS = styled.div`
-    background-image: url(${bgImg});
-    padding: 3rem;
-    min-height: calc(100vh - 135px);
-  `;
 
   const MoreAnchorS = styled.a`
     border: none;
@@ -146,7 +142,7 @@ const Details = () => {
     <DetailsContainerS>
       <DetailCardContainerS>
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-          <h1>{label}</h1>
+          <h3>{label}</h3>
 
           {countryCode && (
             <div

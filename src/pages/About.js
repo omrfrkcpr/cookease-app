@@ -1,26 +1,40 @@
 import React from "react";
-import { PageContainerS } from "../components/styles/ContainerS";
+import {
+  AboutContainerS,
+  PageContainerS,
+} from "../components/styles/ContainerS";
+import styled from "styled-components";
+import { Heart } from "@phosphor-icons/react";
+
+const AboutH1 = styled.h1`
+  text-align: center;
+  color: #a08441;
+`;
+
+const AboutH3and4 = styled.h3`
+  color: #6b675f;
+`;
 
 const About = () => {
   return (
-    <PageContainerS>
-      <div>
-        <div>
-          <h1>Welcome!</h1>
-          <p>
+    <PageContainerS about>
+      <AboutContainerS>
+        <div style={{ marginBottom: "3rem" }}>
+          <AboutH1>Welcome!</AboutH1>
+          <h6 style={{ textAlign: "center" }}>
             CookEase is a delightful way to discover and try out delicious
             recipes. Our mission is to provide inspiring and accessible recipes
             for chefs of all levels in the kitchen.
-          </p>
+          </h6>
         </div>
-        <div>
-          <h3>Our Mission</h3>
+        <div style={{ padding: "0 3rem" }}>
+          <AboutH3and4>Our Mission</AboutH3and4>
           <p>
             Our mission is to empower everyone to cook delicious meals with
             ease. We not only offer recipes but also provide suggestions, tips,
             and tricks to make cooking a breeze.
           </p>
-          <h3>Our Services</h3>
+          <AboutH3and4>Our Services</AboutH3and4>
           <p>
             CookEase boasts a wide and diverse collection of recipes. Whether
             you're looking for quick and easy recipes for everyday meals or
@@ -29,14 +43,7 @@ const About = () => {
             favorite recipes, create shopping lists, and receive personalized
             recommendations to further enhance your cooking experience.
           </p>
-          <h3>The Team</h3>
-          <p>
-            The team behind CookEase consists of passionate chefs who love to
-            share delicious recipes and improve the cooking experience for our
-            users. We continuously work on enhancing our app and value the
-            feedback from our users.
-          </p>
-          <h3>Contact Us</h3>
+          <AboutH3and4>Contact Us</AboutH3and4>
           <p>
             Feel free to reach out to us to learn more about CookEase, provide
             feedback, or explore collaboration opportunities. You can contact us
@@ -45,13 +52,14 @@ const About = () => {
             questions.
           </p>
         </div>
-        <div>
-          <h4>
+        <div style={{ textAlign: "center", marginTop: "2rem" }}>
+          <AboutH3and4 style={{ fontSize: "1.3rem" }}>
             Thank you for choosing CookEase! We hope you have wonderful culinary
-            experiences in the kitchen.
-          </h4>
+            experiences in the kitchen.{" "}
+            {<Heart size={32} color="#6b675f" weight="fill" />}
+          </AboutH3and4>
         </div>
-      </div>
+      </AboutContainerS>
     </PageContainerS>
   );
 };

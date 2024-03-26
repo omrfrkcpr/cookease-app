@@ -4,7 +4,6 @@ import { PageContainerS } from "../components/styles/ContainerS";
 import { RecipeContextComp } from "../context/RecipeProvider";
 import { Row, Col } from "react-bootstrap";
 import RecipeCard from "../components/RecipeCard";
-import Footer from "../components/Footer";
 
 const Home = () => {
   const { recipes } = RecipeContextComp();
@@ -25,7 +24,6 @@ const Home = () => {
           </Col>
         ))}
       </Row>
-      {recipes.length !== 0 && <Footer />}
     </PageContainerS>
   );
 };
