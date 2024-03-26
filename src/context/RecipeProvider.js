@@ -8,14 +8,16 @@ const RecipeProvider = ({ children }) => {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("");
   const [search, setSearch] = useState("");
+  const [mealType, setMealType] = useState("all");
   // const [favorites, setFavorites] = useState([]);
 
   const APP_ID = "716bd830";
   const API_KEY = "7445e3656ca5026352eee8a94611c23e";
   const BASE_URL = "https://api.edamam.com/search?";
 
-  const url = `${BASE_URL}&q=${search}&app_id=${APP_ID}&app_key=${API_KEY}
-`;
+  const url = `${BASE_URL}&q=${search}&app_id=${APP_ID}&app_key=${API_KEY}${
+    mealType === "all" ? "" : `&mealType=${mealType}`
+  }`;
 
   const getRecipes = async () => {
     try {
@@ -34,7 +36,7 @@ const RecipeProvider = ({ children }) => {
 
   useEffect(() => {
     getRecipes();
-  }, [search]);
+  }, [search, mealType]);
 
   return (
     <RecipeContext.Provider
@@ -44,6 +46,8 @@ const RecipeProvider = ({ children }) => {
         query,
         setQuery,
         setSearch,
+        mealType,
+        setMealType,
       }}
     >
       {children}

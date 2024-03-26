@@ -7,8 +7,7 @@ import {
 import { DetailsCardImg } from "../components/styles/ImageS";
 import { GoBackBtn } from "../components/styles/ButtonS";
 import styled from "styled-components";
-import axios from "axios";
-import { Globe } from "@phosphor-icons/react";
+import { Globe, GlobeHemisphereWest } from "@phosphor-icons/react";
 import EU from "../assets/europe-flag-icon.png";
 
 const Details = () => {
@@ -16,6 +15,8 @@ const Details = () => {
     state: { recipe },
   } = useLocation();
   const navigate = useNavigate();
+
+  const [countryCode, setCountryCode] = useState(null);
 
   const {
     label,
@@ -52,91 +53,47 @@ const Details = () => {
     text-align: left;
   `;
 
-  const getCountryCode = async (cuisineType) => {
-    try {
-      if (cuisineType === "turkish") {
-        return "TR";
-      }
-      if (cuisineType === "american") {
-        return "US";
-      }
-      if (cuisineType === "german") {
-        return "DE";
-      }
-      if (cuisineType === "french") {
-        return "FR";
-      }
-      if (cuisineType === "world") {
-        // Render Globe icon for world cuisine type
-        return "Globe";
-      }
-      if (cuisineType === "mediterranean" || cuisineType === "middle eastern") {
-        // Render HemisphereWest icon for Mediterranean cuisine type
-        return "TR";
-      }
-
-      if (cuisineType.includes("europe")) {
-        return "EU";
-      }
-
-      // Tüm ülkelerin verilerini al
-      const response = await axios.get("https://restcountries.com/v3.1/all");
-      const countries = response.data;
-
-      // En yüksek eşleşme sayısı ve eşleşen ülke
-      let maxMatchCount = 0;
-      let matchedCountry = null;
-
-      // Her bir ülke için işlem yap
-      countries.forEach((country) => {
-        const countryName = country.name.common.toLowerCase();
-        const matchCount = countMatchingChars(
-          cuisineType.toLowerCase(),
-          countryName
-        );
-
-        // Eşleşme sayısı en yüksek olan ülkeyi bul
-        if (matchCount > maxMatchCount) {
-          maxMatchCount = matchCount;
-          matchedCountry = country;
-        }
-      });
-
-      // Eşleşen ülke bulunduysa ülke kodunu döndür
-      if (matchedCountry) {
-        return matchedCountry.cca2;
-      } else {
-        console.log(`Country not found for cuisine type: ${cuisineType}`);
-        return null;
-      }
-    } catch (error) {
-      console.error("Error fetching countries:", error);
-      return null;
+  const formatMealType = (mealType) => {
+    if (!Array.isArray(mealType)) {
+      return mealType.charAt(0).toUpperCase() + mealType.slice(1);
     }
+
+    return mealType
+      .map((type) => type.charAt(0).toUpperCase() + type.slice(1))
+      .join(", ");
   };
 
-  // İki metin arasındaki en fazla eşleşen harf sayısını döndürür
-  const countMatchingChars = (str1, str2) => {
-    let count = 0;
-    for (let i = 0; i < Math.min(str1.length, str2.length); i++) {
-      if (str1[i] === str2[i]) {
-        count++;
-      } else {
-        break;
-      }
-    }
-    return count;
+  const getCountryCode = (cuisineType) => {
+    const cuisineMap = {
+      turkish: "TR",
+      kosher: "IL",
+      british: "GB",
+      american: "US",
+      french: "FR",
+      italian: "IT",
+      chinese: "CN",
+      greek: "GR",
+      indian: "IN",
+      japanese: "JP",
+      korean: "KR",
+      mexican: "MX",
+      nordic: "NO",
+      mediterranean: "TR",
+      "middle eastern": "TR",
+      europe: "EU",
+      world: "Globe",
+    };
+
+    return cuisineMap[cuisineType.toLowerCase()] || "world";
   };
 
   useEffect(() => {
     const fetchCountryCode = async () => {
-      const code = await getCountryCode(cuisineType[0]);
+      const code = getCountryCode(cuisineType[0]);
       setCountryCode(code);
     };
     fetchCountryCode();
   }, [cuisineType]);
-
-  const [countryCode, setCountryCode] = useState(null);
 
   return (
     <DetailsContainerS>
@@ -171,6 +128,8 @@ const Details = () => {
               <div>
                 {countryCode === "Globe" ? (
                   <Globe size={45} color="#3f74ca" weight="light" />
+                ) : countryCode === "world" ? (
+                  <GlobeHemisphereWest size={32} color="#3f74ca" />
                 ) : (
                   <img
                     src={
@@ -188,7 +147,7 @@ const Details = () => {
           <p style={{ fontSize: "1.5rem" }}>
             Meal Type :{" "}
             <span style={{ color: "indianred", fontWeight: "bolder" }}>
-              {mealType}
+              {formatMealType(mealType)}
             </span>
           </p>
           <DetailsCardImg

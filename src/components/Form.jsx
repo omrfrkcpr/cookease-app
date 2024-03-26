@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { SearchBtn } from "./styles/ButtonS";
+import { SearchBtn, SelectS } from "./styles/ButtonS";
 import { RecipeContextComp } from "../context/RecipeProvider";
 import { FormContainerS } from "./styles/ContainerS";
 
 const InputS = styled.input`
-  width: 80%;
+  width: 60%;
   max-width: 500px;
   margin: 0.1rem;
   padding: 0.1rem 0.5rem;
@@ -15,12 +15,11 @@ const InputS = styled.input`
 `;
 
 const Form = () => {
-  const { query, setQuery, setSearch } = RecipeContextComp();
+  const { query, setQuery, setSearch, setMealType } = RecipeContextComp();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSearch(query);
-    setQuery("");
   };
 
   return (
@@ -37,6 +36,20 @@ const Form = () => {
         <SearchBtn type="submit" className="search-button">
           Search
         </SearchBtn>
+        <SelectS
+          name="mealTypes"
+          id="mealTypes"
+          onChange={(e) => setMealType(e.target.value)}
+        >
+          <option selected value="all">
+            All
+          </option>
+          <option value="breakfast">Breakfast</option>
+          <option value="brunch">Brunch</option>
+          <option value="lunch/dinner">Lunch/Dinner</option>
+          <option value="snack">Snack</option>
+          <option value="teatime">TeaTime</option>
+        </SelectS>
       </form>
     </FormContainerS>
   );
