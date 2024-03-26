@@ -3,8 +3,9 @@ import logo from "../assets/logo.png";
 import { LogoS } from "./styles/ImageS";
 import { Link, useLocation } from "react-router-dom";
 import { NavbarContainerS } from "./styles/ContainerS";
-import styled from "styled-components";
 import { RecipeContextComp } from "../context/RecipeProvider";
+import { NavbarLi, NavbarUl } from "./styles/ListS";
+import { NavbarLink } from "./styles/SpanS";
 
 const linkStyle = {
   textDecoration: "none",
@@ -12,36 +13,6 @@ const linkStyle = {
   fontWeight: "bolder",
 };
 
-const NavbarUl = styled.ul`
-  display: flex;
-  gap: 2rem;
-  height: 2rem;
-  margin-top: 2rem;
-  justify-content: center;
-  align-items: center;
-  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
-    gap: 1rem;
-    height: 1.5rem;
-    margin-top: 0rem;
-  }
-`;
-
-const NavbarLi = styled.li`
-  list-style-type: none;
-  font-size: 1.5rem;
-
-  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
-    font-size: 1.3rem;
-  }
-`;
-
-const NavbarLink = styled.span`
-  color: ${({ isActive }) => (isActive ? "white" : "#6b675f")};
-
-  &:hover {
-    color: white;
-  }
-`;
 const Navbar = () => {
   // get current url pathname from location
   const location = useLocation();

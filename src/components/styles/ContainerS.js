@@ -4,6 +4,7 @@ import bgImg from "../../assets/details-bg.jpg";
 import aboutBg from "../../assets/about-bg.jpg";
 import notFound from "../../assets/404.avif";
 import loginBg from "../../assets/login-bg.gif";
+import cookie from "../../assets/cookie.png";
 
 export const NavbarContainerS = styled.div`
   display: flex;
@@ -144,4 +145,22 @@ export const AboutContainerS = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+`;
+
+export const LoginRegisterFormContainerS = styled(AboutContainerS)`
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  /* background-image: url(${cookie}); */
+  text-align: center;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+`;
+
+export const FormS = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;

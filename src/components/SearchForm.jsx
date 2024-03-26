@@ -1,18 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 import { SearchBtn, SelectS } from "./styles/ButtonS";
 import { RecipeContextComp } from "../context/RecipeProvider";
 import { FormContainerS } from "./styles/ContainerS";
-
-const InputS = styled.input`
-  width: 60%;
-  max-width: 500px;
-  margin: 0.1rem;
-  padding: 0.1rem 0.5rem;
-  &:focus {
-    outline: none;
-  }
-`;
+import { InputS } from "./styles/InputS";
 
 const Form = () => {
   const { query, setQuery, setSearch, setMealType } = RecipeContextComp();

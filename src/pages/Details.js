@@ -6,9 +6,10 @@ import {
 } from "../components/styles/ContainerS";
 import { DetailsCardImg } from "../components/styles/ImageS";
 import { GoBackBtn } from "../components/styles/ButtonS";
-import styled from "styled-components";
 import { Globe, GlobeHemisphereWest } from "@phosphor-icons/react";
 import EU from "../assets/europe-flag-icon.png";
+import { NutritionsUl } from "../components/styles/ListS";
+import { MoreHyperLinkS } from "../components/styles/HyperLinkS";
 
 const Details = () => {
   const {
@@ -30,28 +31,6 @@ const Details = () => {
   } = recipe;
 
   const { ENERGY_CAL, FAT, CHOCDF, PROCNT, CHOLE, SUGAR } = totalNutrients;
-
-  const MoreAnchorS = styled.a`
-    border: none;
-    width: 120px;
-    margin: auto;
-    padding: 0.3rem 1rem;
-    font-size: 1.2rem;
-    border-radius: 12px;
-    font-weight: bolder;
-    background-color: #f7c006;
-    color: brown;
-    &:hover {
-      color: #f7c006;
-      background-color: brown;
-      transition-duration: 0.5s;
-    }
-  `;
-
-  const NutritionsUl = styled.ul`
-    list-style-type: none;
-    text-align: left;
-  `;
 
   const formatMealType = (mealType) => {
     if (!Array.isArray(mealType)) {
@@ -161,13 +140,13 @@ const Details = () => {
             }}
           >
             <GoBackBtn onClick={() => navigate(-1)}>Go Back</GoBackBtn>
-            <MoreAnchorS
+            <MoreHyperLinkS
               href={`${url}`}
               target="blank"
               style={{ textDecoration: "none", marginLeft: "1rem" }}
             >
               More...
-            </MoreAnchorS>
+            </MoreHyperLinkS>
           </div>
         </div>
         <div>

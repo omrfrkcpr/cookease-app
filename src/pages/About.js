@@ -3,17 +3,8 @@ import {
   AboutContainerS,
   PageContainerS,
 } from "../components/styles/ContainerS";
-import styled from "styled-components";
 import { Heart } from "@phosphor-icons/react";
-
-const AboutH1 = styled.h1`
-  text-align: center;
-  color: #a08441;
-`;
-
-const AboutH3and4 = styled.h3`
-  color: #6b675f;
-`;
+import { AboutH1, AboutH3and4 } from "../components/styles/HeaderS";
 
 const About = () => {
   return (

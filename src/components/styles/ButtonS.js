@@ -56,3 +56,17 @@ export const GoBackBtn = styled.button`
     transition-duration: 0.5s;
   }
 `;
+
+export const LoginRegisterBtn = styled.button`
+  width: 100px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 0.2rem 0.8rem;
+  margin: auto;
+  background-color: #f7c006;
+  &:hover {
+    color: white;
+    background-color: #967713;
+    transition-duration: 0.5s;
+  }
+`;

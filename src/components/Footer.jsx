@@ -4,40 +4,8 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { FooterContainerS } from "./styles/ContainerS";
-import styled from "styled-components";
+import { FooterLi, FooterUl } from "./styles/ListS";
 
-const FooterUl = styled.ul`
-  display: flex;
-  gap: 2rem;
-  height: 1rem;
-  justify-content: right;
-  align-items: center;
-  width: 50%;
-
-  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
-    gap: 1rem;
-    margin: auto;
-    text-align: center;
-    justify-content: center;
-    padding-right: 1.5rem;
-  }
-`;
-
-const FooterLi = styled.li`
-  list-style-type: none;
-  font-size: 2.5rem;
-  width: 40px;
-  &:hover {
-    font-size: 2rem;
-  }
-
-  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
-    font-size: 1.5rem;
-    &:hover {
-      font-size: 1rem;
-    }
-  }
-`;
 const Footer = () => {
   return (
     <FooterContainerS>

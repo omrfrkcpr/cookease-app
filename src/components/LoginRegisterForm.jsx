@@ -1,6 +1,9 @@
 import React from "react";
 import { RecipeContextComp } from "../context/RecipeProvider";
 import { useNavigate } from "react-router-dom";
+import { FormS, LoginRegisterFormContainerS } from "./styles/ContainerS";
+import { FormInputS } from "./styles/InputS";
+import { LoginRegisterBtn } from "./styles/ButtonS";
 
 const LoginRegisterForm = ({ formType }) => {
   const {
@@ -28,10 +31,10 @@ const LoginRegisterForm = ({ formType }) => {
   };
 
   return (
-    <div>
+    <LoginRegisterFormContainerS>
       <h3>Cookease App</h3>
-      <form onSubmit={handleSubmit}>
-        <input
+      <FormS onSubmit={handleSubmit}>
+        <FormInputS
           type="text"
           required
           placeholder="Enter username"
@@ -41,7 +44,7 @@ const LoginRegisterForm = ({ formType }) => {
             if (formType === "login") setUsername(e.target.value);
           }}
         />
-        <input
+        <FormInputS
           type="password"
           required
           placeholder="Enter password"
@@ -51,11 +54,11 @@ const LoginRegisterForm = ({ formType }) => {
             if (formType === "login") setPassword(e.target.value);
           }}
         />
-        <button type="submit">
+        <LoginRegisterBtn type="submit">
           {formType === "login" ? "Login" : "Register"}
-        </button>
-      </form>
-    </div>
+        </LoginRegisterBtn>
+      </FormS>
+    </LoginRegisterFormContainerS>
   );
 };
 
