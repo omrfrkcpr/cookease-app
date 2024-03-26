@@ -34,7 +34,7 @@ const Details = () => {
     border: none;
     width: 120px;
     margin: auto;
-    padding: 0.2rem 1rem;
+    padding: 0.3rem 1rem;
     font-size: 1.2rem;
     border-radius: 12px;
     font-weight: bolder;

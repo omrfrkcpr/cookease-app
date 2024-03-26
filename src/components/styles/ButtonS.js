@@ -18,6 +18,14 @@ export const SearchBtn = styled.button`
   padding: 0.1rem 0.8rem;
   color: white;
   background-color: #ff6318;
+  &:hover {
+    color: whitesmoke;
+    background-color: darkorange;
+  }
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
+    margin-top: 1rem;
+    border-radius: 15px;
+  }
 `;
 
 export const GoBackBtn = styled.button`

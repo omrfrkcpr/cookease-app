@@ -54,7 +54,7 @@ const RecipeCard = ({ recipe }) => {
         <RecipeCardBtn
           onClick={() => navigate(`/details/${label}`, { state: { recipe } })}
         >
-          View Details
+          View Recipe
         </RecipeCardBtn>
         {heart ? (
           <Heart

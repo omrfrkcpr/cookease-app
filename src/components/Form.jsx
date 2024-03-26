@@ -6,6 +6,7 @@ import { FormContainerS } from "./styles/ContainerS";
 
 const InputS = styled.input`
   width: 80%;
+  max-width: 500px;
   margin: 0.1rem;
   padding: 0.1rem 0.5rem;
   &:focus {

@@ -40,9 +40,11 @@ export const HeaderContainerS = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  margin: 0 2rem;
   padding: 2rem 0;
   border-radius: 15px;
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
+    border-radius: 0px;
+  }
 `;
 
 export const PageContainerS = styled.div`
@@ -51,7 +53,10 @@ export const PageContainerS = styled.div`
     props.about
       ? `url(${aboutBg})`
       : "linear-gradient(to bottom, #feada6 20%, #f5efef 30%)"};
-  padding: 1rem;
+  padding: 0.5rem;
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
+    padding: 0rem;
+  }
 `;
 
 export const RecipeCardContainerS = styled.div`
