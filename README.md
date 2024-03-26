@@ -1,7 +1,6 @@
-<p>Clarusway<img align="right"
-  src="https://secure.meetupstatic.com/photos/event/3/1/b/9/600_488352729.jpeg"  width="15px"></p>
+# Recipe App
 
-# Project - 06 : Recipe App (RP-06)
+https://cookease-app.netlify.app/
 
 ## Description
 
@@ -14,10 +13,9 @@ Project aims to create a Recipe App.
 ## Project Skeleton
 
 ```
-06 - Recipe App (folder)
+Recipe App (folder)
 |
 |----readme.md         # Given to the students (Definition of the project)
-SOLUTION
 ├── public
 │     └── index.html
 ├── src
@@ -56,9 +54,7 @@ SOLUTION
 └── yarn.lock
 ```
 
-## Expected Outcome
-
-![Project Snapshot](./food-search-app.gif)
+## Outcome
 
 ## Objective
 
@@ -74,7 +70,7 @@ Build a Recipe App using ReactJS.
 
 - ReactJS
 
-### At the end of the project, students will be able to;
+### At the end of the project, will be able to;
 
 - improve coding skills within HTML & CSS & JS & ReactJS.
 
@@ -86,23 +82,15 @@ Build a Recipe App using ReactJS.
 
 - Step 2: Signup `https://developer.edamam.com/edamam-docs-recipe-api` and get api key.
 
-- Step 3 : Using api key and `axios` for getting data from `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${meal}`.
+- Step 3 : Use api key and `axios` for getting data from `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${meal}`.
 
-- Step 4: You are expected to code your project with **styled component**
- 
-- Step 5: You can use Context API for Global State Management
+- Step 4: Code project with **styled component**
 
-- Step 6: You can get random login background image from `https://picsum.photos/1600/900`
+- Step 5: Use Context API for Global State Management
 
-- Step 7: Add project gif to your project and README.md file.
+- Step 6: Get random login background image from `https://picsum.photos/1600/900`
 
-## Demo
-
-https://recipe-app-cw.vercel.app/
-
-## Notes
-
-- You can add additional functionalities to your app.
+- Step 7: Add project gif to project and README.md file.
 
 - [Assets Folder](./assets/)
 
