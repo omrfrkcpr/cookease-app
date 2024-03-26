@@ -3,6 +3,7 @@ import banner from "../../assets/banner.jpg";
 import bgImg from "../../assets/details-bg.jpg";
 import aboutBg from "../../assets/about-bg.jpg";
 import notFound from "../../assets/404.avif";
+import loginBg from "../../assets/login-bg.gif";
 
 export const NavbarContainerS = styled.div`
   display: flex;
@@ -50,15 +51,17 @@ export const HeaderContainerS = styled.div`
 
 export const PageContainerS = styled.div`
   position: relative;
-  background-repeat: no-repeat;
+  background-repeat: ${(props) => (props.login ? "repeat" : "no-repeat")};
   background-position: center;
-  background-size: ${({ notFound }) => notFound && "contain"};
+  background-size: ${(props) => props.notFound && "contain"};
   min-height: calc(100vh - 236px);
   background-image: ${(props) =>
     props.about
       ? `url(${aboutBg})`
       : props.notFound
       ? `url(${notFound})`
+      : props.login
+      ? `url(${loginBg})`
       : "linear-gradient(to bottom, #feada6 20%, #f5efef 30%)"};
   padding: 0.5rem;
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {

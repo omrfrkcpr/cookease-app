@@ -1,6 +1,6 @@
 import React from "react";
 import { HeaderContainerS } from "./styles/ContainerS";
-import Form from "./Form";
+import SearchForm from "./SearchForm";
 import styled from "styled-components";
 
 const HeaderH1 = styled.h1`
@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <HeaderContainerS>
       <HeaderH1>CookEase App</HeaderH1>
-      <Form />
+      <SearchForm />
     </HeaderContainerS>
   );
 };

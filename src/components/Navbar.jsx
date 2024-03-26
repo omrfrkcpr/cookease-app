@@ -4,6 +4,7 @@ import { LogoS } from "./styles/ImageS";
 import { Link, useLocation } from "react-router-dom";
 import { NavbarContainerS } from "./styles/ContainerS";
 import styled from "styled-components";
+import { RecipeContextComp } from "../context/RecipeProvider";
 
 const linkStyle = {
   textDecoration: "none",
@@ -44,6 +45,8 @@ const NavbarLink = styled.span`
 const Navbar = () => {
   // get current url pathname from location
   const location = useLocation();
+  const { username, password, mainUsername, mainPassword } =
+    RecipeContextComp();
 
   return (
     <NavbarContainerS>
@@ -71,9 +74,31 @@ const Navbar = () => {
           </Link>
         </NavbarLi>
         <NavbarLi>
-          <Link to="/login" style={linkStyle}>
-            <NavbarLink isActive={location.pathname === "/login"}>
-              Login
+          <Link
+            to={
+              !username && !password && !mainUsername && !mainPassword
+                ? "/register"
+                : !username &&
+                  !password &&
+                  mainUsername &&
+                  mainPassword &&
+                  "/login"
+            }
+            style={linkStyle}
+          >
+            <NavbarLink
+              isActive={
+                location.pathname === "/login" ||
+                location.pathname === "/register"
+              }
+            >
+              {!username && !password && !mainUsername && !mainPassword
+                ? "Register"
+                : !username && !password && mainUsername && mainPassword
+                ? "Login"
+                : username && password
+                ? "Logout"
+                : "Login"}
             </NavbarLink>
           </Link>
         </NavbarLi>

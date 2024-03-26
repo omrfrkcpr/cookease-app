@@ -5,6 +5,14 @@ import { useEffect, useState } from "react";
 export const RecipeContext = createContext();
 
 const RecipeProvider = ({ children }) => {
+  // for register page and PrivateRouter
+  const [mainUsername, setMainUsername] = useState("");
+  const [mainPassword, setMainPassword] = useState("");
+
+  // for login page
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("");
   const [search, setSearch] = useState("");
@@ -41,6 +49,14 @@ const RecipeProvider = ({ children }) => {
   return (
     <RecipeContext.Provider
       value={{
+        username,
+        setUsername,
+        password,
+        setPassword,
+        mainUsername,
+        setMainUsername,
+        mainPassword,
+        setMainPassword,
         recipes,
         setRecipes,
         query,

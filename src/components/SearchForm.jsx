@@ -33,9 +33,6 @@ const Form = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <SearchBtn type="submit" className="search-button">
-          Search
-        </SearchBtn>
         <SelectS
           name="mealTypes"
           id="mealTypes"
@@ -50,6 +47,9 @@ const Form = () => {
           <option value="snack">Snack</option>
           <option value="teatime">TeaTime</option>
         </SelectS>
+        <SearchBtn type="submit" className="search-button">
+          Search
+        </SearchBtn>
       </form>
     </FormContainerS>
   );

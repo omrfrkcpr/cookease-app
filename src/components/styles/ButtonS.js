@@ -30,8 +30,8 @@ export const SearchBtn = styled.button`
 
 export const SelectS = styled.select`
   border: none;
-  padding: 0.1rem 0rem;
-  margin-left: 0.2rem;
+  padding: 0.1rem 0;
+  margin-right: 0.2rem;
   color: black;
   background-color: #f2dfb3;
   text-align: center;
