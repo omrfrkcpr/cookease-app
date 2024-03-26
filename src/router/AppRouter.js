@@ -19,7 +19,6 @@ const AppRouter = () => {
     <div>
       <Router>
         <Navbar />
-
         <Outlet />
         <Routes>
           <Route path="/" element={<Home />} />
