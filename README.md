@@ -92,6 +92,6 @@ Build a Recipe App using ReactJS.
 
 - Step 7: Add project gif to project and README.md file.
 
-- [Assets Folder](./assets/)
+- [Assets Folder](./src/assets/)
 
 **<p align="center">&#9786; Happy Coding &#9997;</p>**
