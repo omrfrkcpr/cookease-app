@@ -21,8 +21,10 @@ const LoginRegisterForm = ({ formType }) => {
     if (formType === "register") {
       localStorage.setItem("mainUsername", setUsername);
       localStorage.setItem("mainPassword", setPassword);
+      navigate("/login");
+    } else if (formType === "login") {
+      navigate("/home");
     }
-    navigate("/login");
   };
 
   return (

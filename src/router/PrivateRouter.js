@@ -9,7 +9,7 @@ const PrivateRouter = () => {
     password === localStorage.getItem("mainPassword") ? (
     <Outlet />
   ) : (
-    <Navigate to="/register" />
+    <Navigate to="/home" />
   );
 };
 
