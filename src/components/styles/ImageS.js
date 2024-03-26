@@ -1,17 +1,5 @@
 import styled from "styled-components";
 
-const ImageS = styled.img`
-  /* width: 300px;
-  height: 300px;
-  border: 2px solid red;
-  margin: 1rem;
-
-  @media screen and (max-width: ${({ theme }) => theme.responsive}) {
-    width: 80%;
-    height: 80%;
-  } */
-`;
-
 export const LogoS = styled.img`
   box-shadow: 2px 10px 10px black;
   width: 150px;
@@ -19,7 +7,7 @@ export const LogoS = styled.img`
   border-radius: 50%;
   background-color: #ff6318;
 
-  @media screen and (max-width: ${({ theme }) => theme.responsive}) {
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     width: 100px;
     height: 80px;
   }
@@ -36,4 +24,16 @@ export const RecipeCardImg = styled.img`
   }
 `;
 
-export default ImageS;
+export const DetailsCardImg = styled.img`
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+  object-fit: cover;
+  object-position: center;
+`;
+
+export const ComingSoonImg = styled.img`
+  width: 45%;
+  object-fit: cover;
+  object-position: center;
+`;

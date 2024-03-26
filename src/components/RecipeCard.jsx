@@ -30,10 +30,12 @@ const RecipeCard = ({ recipe }) => {
     <RecipeCardContainerS recipe>
       <h4
         style={{
-          height: "50px",
+          height: "80px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          width: "100%",
+          borderBottom: "2px solid black",
         }}
       >
         {label}

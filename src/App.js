@@ -6,7 +6,8 @@ import { ThemeProvider } from "styled-components";
 import RecipeProvider from "./context/RecipeProvider";
 
 const globalStyle = {
-  responsive: "700px",
+  responsiveSmall: "700px",
+  responsiveLarge: "1000px",
   // shadow: "0 10px 10px rgba(0,0,0,0.15)",
 };
 

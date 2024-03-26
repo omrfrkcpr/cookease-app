@@ -4,11 +4,11 @@ import banner from "../../assets/banner.jpg";
 export const NavbarContainerS = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem 1rem;
   background-image: linear-gradient(to top, #feada6 40%, #f5efef 110%);
   align-items: center;
 
-  @media screen and (max-width: ${({ theme }) => theme.responsive}) {
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     flex-direction: column;
     text-align: center;
     justify-content: center;
@@ -20,7 +20,7 @@ export const NavbarContainerS = styled.div`
 export const FooterContainerS = styled(NavbarContainerS)`
   padding: 2rem 2rem;
 
-  @media screen and (max-width: ${({ theme }) => theme.responsive}) {
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,7 +44,7 @@ export const HeaderContainerS = styled.div`
 `;
 
 export const PageContainerS = styled.div`
-  min-height: calc(100vh - 244px);
+  min-height: calc(100vh - 236px);
   background-image: linear-gradient(to bottom, #feada6 20%, #f5efef 30%);
   padding-top: 1rem;
 `;
@@ -56,7 +56,7 @@ export const RecipeCardContainerS = styled.div`
   align-items: center;
   text-align: center;
   padding: 1rem;
-  height: 400px;
+  height: 470px;
   text-align: center;
   background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
   border: 2px solid grey;
@@ -67,15 +67,33 @@ export const RecipeCardContainerS = styled.div`
 
 export const DetailCardContainerS = styled.div`
   display: flex;
-  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0px 5px 20px rgb(71, 71, 71);
   justify-content: center;
   align-items: center;
-  padding: 1rem;
-  text-align: left;
+  padding: 1.5rem;
+  background-color: wheat;
+  text-align: center;
+  width: fit-content;
+  margin: auto;
   gap: 1rem;
+
+  @media screen and (max-width: ${({ theme }) => theme.responsiveLarge}) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 export const FormContainerS = styled.div`
   width: 50%;
+  text-align: center;
+`;
+
+export const EmptyContainerS = styled.div`
+  min-height: calc(100vh - 236px);
+  background-color: #1394b2;
   text-align: center;
 `;

@@ -1,20 +1,5 @@
 import styled from "styled-components";
 
-const ButtonS = styled.button`
-  /* background-color: ${({ omer }) => (omer ? "#a62440" : "white")};
-  border: ${({ kadir }) => (kadir ? `1px solid ${kadir}` : "none")};
-  padding: 0.5rem 0.8rem;
-  color: ${({ kadir }) => kadir || "white"};
-  font-size: 1.1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 2rem 0.5rem;
-  &:hover {
-    opacity: 0.9;
-    transform: scale(0.95);
-  } */
-`;
-
 export const RecipeCardBtn = styled.button`
   border: none;
   padding: 0.3rem 0.8rem;
@@ -31,15 +16,23 @@ export const RecipeCardBtn = styled.button`
 export const SearchBtn = styled.button`
   border: none;
   padding: 0.1rem 0.8rem;
-  font-weight: bolder;
-  color: #ff6318;
+  color: white;
+  background-color: #ff6318;
 `;
 
-// export const DetailButton = styled(ButtonSSS)`
-//   color: tomato;
-//   background-color: white;
-//   border-radius: 20px 0;
-//   border-left: 3px solid blue;
-// `;
-
-export default ButtonS;
+export const GoBackBtn = styled.button`
+  border: none;
+  width: 120px;
+  margin: auto;
+  padding: 0.2rem 1rem;
+  background-color: #f7c006;
+  color: brown;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  font-weight: bolder;
+  &:hover {
+    color: #f7c006;
+    background-color: brown;
+    transition-duration: 0.5s;
+  }
+`;

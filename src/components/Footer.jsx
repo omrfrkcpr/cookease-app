@@ -14,7 +14,7 @@ const FooterUl = styled.ul`
   align-items: center;
   width: 50%;
 
-  @media screen and (max-width: ${({ theme }) => theme.responsive}) {
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     gap: 1rem;
     margin: auto;
     text-align: center;
@@ -31,7 +31,7 @@ const FooterLi = styled.li`
     font-size: 2rem;
   }
 
-  @media screen and (max-width: ${({ theme }) => theme.responsive}) {
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     font-size: 1.5rem;
     &:hover {
       font-size: 1rem;

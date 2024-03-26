@@ -1,12 +1,20 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { RecipeCardContainerS } from "../components/styles/ContainerS";
-import { RecipeCardImg } from "../components/styles/ImageS";
-import { RecipeCardBtn } from "../components/styles/ButtonS";
-import { Heart } from "@phosphor-icons/react";
-import { RecipeContextComp } from "../context/RecipeProvider";
+// import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { RecipeCardContainerS } from "../components/styles/ContainerS";
+// import { RecipeCardImg } from "../components/styles/ImageS";
+// import { RecipeCardBtn } from "../components/styles/ButtonS";
+// import { Heart } from "@phosphor-icons/react";
+// import { RecipeContextComp } from "../context/RecipeProvider";
+import ComingSoon from "../assets/ComingSoon.png";
+import { EmptyContainerS } from "../components/styles/ContainerS";
+import { ComingSoonImg } from "../components/styles/ImageS";
 
 const Favorites = ({ recipe }) => {
+  return (
+    <EmptyContainerS>
+      <ComingSoonImg src={ComingSoon} alt="coming-soon" />
+    </EmptyContainerS>
+  );
   // const navigate = useNavigate();
   // const [heart, setHeart] = useState(false);
   // const { favorites, setFavorites } = RecipeContextComp();

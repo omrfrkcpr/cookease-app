@@ -38,7 +38,13 @@ const RecipeProvider = ({ children }) => {
 
   return (
     <RecipeContext.Provider
-      value={{ recipes, setRecipes, query, setQuery, setSearch }}
+      value={{
+        recipes,
+        setRecipes,
+        query,
+        setQuery,
+        setSearch,
+      }}
     >
       {children}
     </RecipeContext.Provider>

@@ -15,6 +15,7 @@ const NavbarUl = styled.ul`
   display: flex;
   gap: 2rem;
   height: 2rem;
+  margin-top: 2rem;
   justify-content: center;
   align-items: center;
 `;
@@ -23,7 +24,7 @@ const NavbarLi = styled.li`
   list-style-type: none;
   font-size: 1.5rem;
 
-  @media screen and (max-width: ${({ theme }) => theme.responsive}) {
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     font-size: 1rem;
   }
 `;
