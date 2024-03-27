@@ -10,7 +10,6 @@ const AppProvider = ({ children }) => {
   const [query, setQuery] = useState("");
   const [search, setSearch] = useState("");
   const [mealType, setMealType] = useState("all");
-
   const [favorites, setFavorites] = useState([]);
 
   const addToFavorites = (recipe) => {
@@ -18,7 +17,7 @@ const AppProvider = ({ children }) => {
       (favorite) => favorite.label === recipe.label
     );
 
-    if (!isFavorite) {
+    if (!isFavorite && isLoggedIn) {
       setFavorites((prevFavorites) => [...prevFavorites, recipe]);
     }
   };

@@ -12,12 +12,14 @@ import { Col, Row } from "react-bootstrap";
 
 const Favorites = () => {
   const navigate = useNavigate();
-  const [, setHeart] = useState(false);
+  const [, setIsFavorite] = useState(false);
   const { favorites, removeFromFavorites } = AppContextComp();
 
   const handleUnFavorite = (recipeLabel) => {
-    setHeart(false);
-    removeFromFavorites(recipeLabel);
+    if (window.confirm("Are you sure you want to unfavorite this recipe?")) {
+      setIsFavorite(false);
+      removeFromFavorites(recipeLabel);
+    }
   };
   return (
     <PageContainerS>

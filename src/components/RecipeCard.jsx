@@ -8,18 +8,27 @@ import { AppContextComp } from "../context/AppProvider";
 
 const RecipeCard = ({ recipe }) => {
   const navigate = useNavigate();
-  const [heart, setHeart] = useState(false);
-  const { isLoggedIn, addToFavorites, removeFromFavorites } = AppContextComp();
+  const [isFavorite, setIsFavorite] = useState(false);
+  const { favorites, isLoggedIn, addToFavorites, removeFromFavorites } =
+    AppContextComp();
 
   const { label, image } = recipe;
 
   const handleFavorite = () => {
-    setHeart(true);
-    addToFavorites(recipe);
+    if (isLoggedIn) {
+      setIsFavorite(true);
+      addToFavorites(recipe);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const isAlreadyFavorite = (checkLabel) => {
+    favorites.map((item) => item.label === checkLabel && setIsFavorite(true));
   };
 
   const handleUnFavorite = () => {
-    setHeart(false);
+    setIsFavorite(false);
     removeFromFavorites(recipe.label);
   };
 
@@ -57,7 +66,7 @@ const RecipeCard = ({ recipe }) => {
       </div>
       <div className="buttons">
         <RecipeCardBtn onClick={handleViewRecipe}>View Recipe</RecipeCardBtn>
-        {heart ? (
+        {isFavorite || isAlreadyFavorite(label) ? (
           <Heart
             size={32}
             color="#e84b11"

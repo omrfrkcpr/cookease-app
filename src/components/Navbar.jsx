@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/logo.png";
 import { LogoS } from "./styles/ImageS";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { NavbarContainerS } from "./styles/ContainerS";
 import { AppContextComp } from "../context/AppProvider";
 import { NavbarLi, NavbarUl } from "./styles/ListS";
@@ -17,12 +17,13 @@ const linkStyle = {
 const Navbar = () => {
   // get current url pathname from location
   const location = useLocation();
+  const navigate = useNavigate();
   const { isLoggedIn, setIsLoggedIn, favorites } = AppContextComp();
 
   return (
     <NavbarContainerS>
       <div className="left">
-        <LogoS src={logo} alt="logo" />
+        <LogoS src={logo} alt="logo" onClick={() => navigate("/home")} />
       </div>
       <NavbarUl className="right">
         <NavbarLi>
