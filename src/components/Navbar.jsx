@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { NavbarContainerS } from "./styles/ContainerS";
 import { AppContextComp } from "../context/AppProvider";
 import { NavbarLi, NavbarUl } from "./styles/ListS";
-import { NavbarLink } from "./styles/SpanS";
+import { FavoritesSpan, NavbarLink } from "./styles/SpanS";
 import { NavbarLinkBtn } from "./styles/ButtonS";
 
 const linkStyle = {
@@ -17,7 +17,7 @@ const linkStyle = {
 const Navbar = () => {
   // get current url pathname from location
   const location = useLocation();
-  const { isLoggedIn, setIsLoggedIn } = AppContextComp();
+  const { isLoggedIn, setIsLoggedIn, favorites } = AppContextComp();
 
   return (
     <NavbarContainerS>
@@ -34,8 +34,14 @@ const Navbar = () => {
         </NavbarLi>
         <NavbarLi>
           <Link to="/favorites" style={linkStyle}>
-            <NavbarLink isActive={location.pathname === "/favorites"}>
-              Favorites
+            <NavbarLink
+              isActive={location.pathname === "/favorites"}
+              style={{ position: "relative" }}
+            >
+              Favorites{" "}
+              <FavoritesSpan>
+                {favorites.length > 0 && favorites.length}
+              </FavoritesSpan>
             </NavbarLink>
           </Link>
         </NavbarLi>
