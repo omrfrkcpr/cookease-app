@@ -147,16 +147,24 @@ export const AboutContainerS = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-export const LoginRegisterFormContainerS = styled(AboutContainerS)`
+export const LoginRegisterFormContainerS = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  width: 400px;
-  /* background-image: url(${cookie}); */
+  width: 70%;
+  max-width: 400px;
+  max-height: 400px;
+  background-image: url(${cookie});
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   text-align: center;
-  height: 400px;
+  height: 70%;
   justify-content: center;
   align-items: center;
-  border-radius: 100%;
 `;
 
 export const FormS = styled.form`

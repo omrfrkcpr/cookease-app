@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "../components/Header";
 import { PageContainerS } from "../components/styles/ContainerS";
-import { RecipeContextComp } from "../context/RecipeProvider";
+import { AppContextComp } from "../context/AppProvider";
 import { Row, Col } from "react-bootstrap";
 import RecipeCard from "../components/RecipeCard";
 
 const Home = () => {
-  const { recipes } = RecipeContextComp();
+  const { recipes } = AppContextComp();
 
   return (
     <PageContainerS>

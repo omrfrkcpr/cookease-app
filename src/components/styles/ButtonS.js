@@ -59,7 +59,7 @@ export const GoBackBtn = styled.button`
 
 export const LoginRegisterBtn = styled.button`
   width: 100px;
-  border: 1px solid grey;
+  border: none;
   border-radius: 10px;
   padding: 0.2rem 0.8rem;
   margin: auto;
@@ -68,5 +68,16 @@ export const LoginRegisterBtn = styled.button`
     color: white;
     background-color: #967713;
     transition-duration: 0.5s;
+  }
+`;
+
+export const NavbarLinkBtn = styled.button`
+  color: ${({ isActive }) => (isActive ? "white" : "#6b675f")};
+  text-decoration: none;
+  background-color: inherit;
+  font-weight: bolder;
+  border: none;
+  &:hover {
+    color: white;
   }
 `;

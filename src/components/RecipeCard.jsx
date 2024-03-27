@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RecipeCardContainerS } from "./styles/ContainerS";
 import { RecipeCardImg } from "./styles/ImageS";
 import { RecipeCardBtn } from "./styles/ButtonS";
 import { Heart } from "@phosphor-icons/react";
-// import { RecipeContextComp } from "../context/RecipeProvider";
+import { AppContextComp } from "../context/AppProvider";
 
 const RecipeCard = ({ recipe }) => {
   const navigate = useNavigate();
   const [heart, setHeart] = useState(false);
-  // const { favorites, setFavorites } = RecipeContextComp();
+  const { isLoggedIn } = AppContextComp();
+  // const { favorites, setFavorites } = AppContextComp();
 
   const { label, image } = recipe;
 
@@ -24,6 +25,14 @@ const RecipeCard = ({ recipe }) => {
     setHeart(false);
     // const updatedFavorites = favorites.filter((item) => item.label !== label);
     // setFavorites(updatedFavorites);
+  };
+
+  const handleViewRecipe = () => {
+    if (isLoggedIn) {
+      navigate(`/details/${label}`, { state: { recipe } });
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
@@ -51,11 +60,7 @@ const RecipeCard = ({ recipe }) => {
         <RecipeCardImg src={image} alt={`${label}-img`} />
       </div>
       <div className="buttons">
-        <RecipeCardBtn
-          onClick={() => navigate(`/details/${label}`, { state: { recipe } })}
-        >
-          View Recipe
-        </RecipeCardBtn>
+        <RecipeCardBtn onClick={handleViewRecipe}>View Recipe</RecipeCardBtn>
         {heart ? (
           <Heart
             size={32}

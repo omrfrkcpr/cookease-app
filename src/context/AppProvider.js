@@ -2,16 +2,10 @@ import axios from "axios";
 import React, { createContext, useContext } from "react";
 import { useEffect, useState } from "react";
 
-export const RecipeContext = createContext();
+export const AppContext = createContext();
 
-const RecipeProvider = ({ children }) => {
-  // for register page and PrivateRouter
-  const [mainUsername, setMainUsername] = useState("");
-  const [mainPassword, setMainPassword] = useState("");
-
-  // for login page
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const AppProvider = ({ children }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("");
@@ -47,16 +41,10 @@ const RecipeProvider = ({ children }) => {
   }, [search, mealType]);
 
   return (
-    <RecipeContext.Provider
+    <AppContext.Provider
       value={{
-        username,
-        setUsername,
-        password,
-        setPassword,
-        mainUsername,
-        setMainUsername,
-        mainPassword,
-        setMainPassword,
+        isLoggedIn,
+        setIsLoggedIn,
         recipes,
         setRecipes,
         query,
@@ -67,12 +55,12 @@ const RecipeProvider = ({ children }) => {
       }}
     >
       {children}
-    </RecipeContext.Provider>
+    </AppContext.Provider>
   );
 };
 
-export const RecipeContextComp = () => {
-  return useContext(RecipeContext);
+export const AppContextComp = () => {
+  return useContext(AppContext);
 };
 
-export default RecipeProvider;
+export default AppProvider;

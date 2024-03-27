@@ -14,7 +14,6 @@ import NotFound from "../components/NotFound";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Register from "../pages/Register";
-import PrivateRouter from "./PrivateRouter";
 
 const AppRouter = () => {
   return (
@@ -24,9 +23,7 @@ const AppRouter = () => {
         <Outlet />
         <Routes>
           <Route path="/" element={<Register />} />
-          <Route path="/home" element={<PrivateRouter />}>
-            <Route path="" element={<Home />} />
-          </Route>
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/details/:food" element={<Details />} />
           <Route path="/favorites" element={<Favorites />} />

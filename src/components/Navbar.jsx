@@ -3,9 +3,10 @@ import logo from "../assets/logo.png";
 import { LogoS } from "./styles/ImageS";
 import { Link, useLocation } from "react-router-dom";
 import { NavbarContainerS } from "./styles/ContainerS";
-import { RecipeContextComp } from "../context/RecipeProvider";
+import { AppContextComp } from "../context/AppProvider";
 import { NavbarLi, NavbarUl } from "./styles/ListS";
 import { NavbarLink } from "./styles/SpanS";
+import { NavbarLinkBtn } from "./styles/ButtonS";
 
 const linkStyle = {
   textDecoration: "none",
@@ -16,8 +17,7 @@ const linkStyle = {
 const Navbar = () => {
   // get current url pathname from location
   const location = useLocation();
-  const { username, password, mainUsername, mainPassword } =
-    RecipeContextComp();
+  const { isLoggedIn, setIsLoggedIn } = AppContextComp();
 
   return (
     <NavbarContainerS>
@@ -26,8 +26,10 @@ const Navbar = () => {
       </div>
       <NavbarUl className="right">
         <NavbarLi>
-          <Link to="/" style={linkStyle}>
-            <NavbarLink isActive={location.pathname === "/"}>Home</NavbarLink>
+          <Link to="/home" style={linkStyle}>
+            <NavbarLink isActive={location.pathname === "/home"}>
+              Home
+            </NavbarLink>
           </Link>
         </NavbarLi>
         <NavbarLi>
@@ -45,33 +47,19 @@ const Navbar = () => {
           </Link>
         </NavbarLi>
         <NavbarLi>
-          <Link
-            to={
-              !username && !password && !mainUsername && !mainPassword
-                ? "/register"
-                : !username &&
-                  !password &&
-                  mainUsername &&
-                  mainPassword &&
-                  "/login"
-            }
-            style={linkStyle}
-          >
-            <NavbarLink
-              isActive={
-                location.pathname === "/login" ||
-                location.pathname === "/register"
-              }
-            >
-              {!username && !password && !mainUsername && !mainPassword
-                ? "Register"
-                : !username && !password && mainUsername && mainPassword
-                ? "Login"
-                : username && password
-                ? "Logout"
-                : "Login"}
-            </NavbarLink>
-          </Link>
+          {isLoggedIn ? (
+            <NavbarLinkBtn onClick={() => setIsLoggedIn(false)}>
+              <NavbarLink isActive={location.pathname === "/login"}>
+                Logout
+              </NavbarLink>
+            </NavbarLinkBtn>
+          ) : (
+            <Link to={"/login"} style={linkStyle}>
+              <NavbarLink isActive={location.pathname === "/login"}>
+                Login
+              </NavbarLink>
+            </Link>
+          )}
         </NavbarLi>
       </NavbarUl>
     </NavbarContainerS>

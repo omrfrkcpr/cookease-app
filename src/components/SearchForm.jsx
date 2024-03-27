@@ -1,11 +1,11 @@
 import React from "react";
 import { SearchBtn, SelectS } from "./styles/ButtonS";
-import { RecipeContextComp } from "../context/RecipeProvider";
+import { AppContextComp } from "../context/AppProvider";
 import { FormContainerS } from "./styles/ContainerS";
 import { InputS } from "./styles/InputS";
 
 const Form = () => {
-  const { query, setQuery, setSearch, setMealType } = RecipeContextComp();
+  const { query, setQuery, setSearch, setMealType } = AppContextComp();
 
   const handleSubmit = (e) => {
     e.preventDefault();
