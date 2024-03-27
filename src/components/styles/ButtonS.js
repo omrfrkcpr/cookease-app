@@ -85,3 +85,18 @@ export const NavbarLinkBtn = styled.button`
     color: white;
   }
 `;
+
+export const FavoriteBtn = styled.button`
+  border: none;
+  background-color: inherit;
+  margin: 1rem 0 0 2rem;
+  &:hover svg {
+    fill: white;
+    transition-duration: 0.8s;
+  }
+  &:hover {
+    color: white;
+    transition-duration: 0.5s;
+    font-weight: bolder;
+  }
+`;
