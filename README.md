@@ -10,20 +10,66 @@ This single-page react recipe application is a platform where users can find var
 
 ## Project Planning & Management
 
-**Epic User Story:** Retrieve and Store User Information 🎖️
+**Epic User Story:** As a user of the recipe app, I want to be able to browse recipes, save my favorite recipes, view detailed information about each recipe, and navigate through different pages of the app seamlessly. 🎖️
 
 **User Stories:**
 
-1️⃣ **Retrieve User Information:**
+1️⃣ **Browse Recipes:**
 
-- 🥇 (Fetch User Information via Axios) - Send a GET request to the chosen free and open source API using Axios. - Handle the response to extract usable user information. - Display the retrieved user information to the user.
-- 🥈 (Manually Input User Information) - Create a user interface (form or input fields) for manual user data input. - Implement validation to ensure correctness and completeness of the entered information. - Save the manually inputted user data for storage.
+- 🥇 As a user, I want to be able to search for recipes based on their names.
+- 🥈 As a user, I want to see a list of recipes matching my search query.
+- 🥉 As a user, I want to be able to click on a recipe to view its details.
 
-2️⃣ **Store User Information**
+  Task-1 = Implement API integration to fetch recipes based on search queries.
+  Task-2 = Display search results on the home page.
+  Task-3 = Implement functionality to navigate to the recipe details page when a recipe is clicked.
 
-- 🥇 (Display Stored User Information) - Design a user-friendly table or list view to display both fetched and manually inputted user data. - Organize the displayed information in a clear and understandable format.
-- 🥈 (Edit User Information) - Develop functionality to allow users to edit stored user data. - Design an intuitive interface for users to make edits to the displayed user information. - Update the database with the edited user data.
-- 🥉 (Delete User Information) - Enable users to delete stored user data. - Implement a confirmation mechanism to prevent accidental deletions. - Remove the selected user data from the database upon user confirmation.
+2️⃣ **Save Favorite Recipes:**
+
+- 🥇 As a user, I want to be able to mark a recipe as a favorite.
+- 🥈 As a user, I want my favorite recipes to be saved for future reference.
+- 🥉 As a user, I want to be able to view my list of favorite recipes.
+
+  Task-1 = Create a context provider to manage favorite recipes.
+  Task-2 = Implement functionality to add and remove recipes from favorites.
+  Task-3 = Display favorite recipes on the favorites page.
+
+3️⃣ **View Recipe Details:**
+
+- 🥇 As a user, I want to be able to view detailed information about a recipe, including its ingredients, nutrition facts, cuisine type, and country flag.
+- 🥈 As a user, I want to have the option to visit an external website for more information about a recipe.
+- 🥉 As a user, I want to be prompted to login before viewing recipe details if I'm not already logged in.
+
+  Task-1 = Design the recipe details page layout.
+  Task-2 = Fetch and display detailed information about a recipe, including ingredients, nutrition facts, cuisine type, meal type and country flag.
+  Task-3 = Implement functionality to visit an external website for more information about a recipe.
+
+4️⃣ **Navigate Through Pages:**
+
+- 🥇 As a user, I want to be able to navigate between different pages of the app using the navigation bar.
+- 🥈 As a user, I want to see relevant information on each page, such as recipe search results on the home page and general information about the app on the About page.
+
+  Task-1 = Implement React Router for navigation between different pages.
+  Task-2 = Design and implement the navigation bar component using styled-components. Ensure it has a responsive design to adapt to different screen sizes.
+  Task-3 = Ensure relevant information is displayed on each page.
+
+5️⃣ **User Authentication:**
+
+- 🥇 As a user, I want to be able to login to access certain features of the app, such as viewing recipe details.
+- 🥈 As a user, I want to be redirected to the recipe details page after successfully logging in if I was previously trying to access a specific recipe.
+
+  Task-1 = Implement user authentication using a backend service or authentication provider.
+  Task-2 = Design and implement the login page using styled-components. Ensure it has a user-friendly interface with proper input fields and buttons.
+  Task-3 = Redirect users to the recipe details page after successful login if applicable.
+
+6️⃣ **Handle Page Not Found:**
+
+- 🥇 As a user, I want to be redirected to the home page if I enter a non-existent URL or try to access an undefined page.
+- 🥈 As a user, I want to see a message informing me about the redirection and have the option to manually navigate to the home page.
+
+  Task-1 = Design and implement the not found page layout using styled-components. Ensure it has a visually appealing design with clear messaging.
+  Task-2 = Implement functionality to redirect users to the home page after a certain time period.
+  Task-3 = Display a message informing users about the redirection option.
 
 **Additional Requirement:** 💥
 
@@ -104,7 +150,7 @@ Build a Recipe App using ReactJS.
 
 ## Steps to Solution
 
-- Step 1: Create React App using `yarn create react-app recipe-app`or `npx create-react-app recipe-app`
+- Step 1: Create React App using `npx create-react-app cookease-app`
 
 - Step 2: Signup `https://developer.edamam.com/edamam-docs-recipe-api` and get api key.
 
