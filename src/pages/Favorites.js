@@ -9,7 +9,7 @@ import { Col, Row } from "react-bootstrap";
 
 const Favorites = () => {
   const navigate = useNavigate();
-  const [heart, setHeart] = useState(false);
+  const [, setHeart] = useState(false);
   const { favorites, removeFromFavorites } = AppContextComp();
 
   const handleUnFavorite = (recipeLabel) => {
@@ -49,9 +49,9 @@ const Favorites = () => {
             </div>
             <div className="buttons">
               <RecipeCardBtn
-                onClick={() =>
-                  navigate(`/details/${recipe.label}`, { state: { recipe } })
-                }
+                onClick={() => {
+                  navigate(`/details/${recipe.label}`, {state: {recipe}});
+                }}
               >
                 View Details
               </RecipeCardBtn>
@@ -60,7 +60,7 @@ const Favorites = () => {
                 color="#e84b11"
                 weight={"fill"}
                 style={{ marginLeft: ".5rem" }}
-                onClick={handleUnFavorite(recipe.label)}
+                onClick={() => handleUnFavorite(recipe.label)}
               />
             </div>
           </RecipeCardContainerS>
