@@ -6,12 +6,29 @@ export const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("");
   const [search, setSearch] = useState("");
   const [mealType, setMealType] = useState("all");
-  // const [favorites, setFavorites] = useState([]);
+
+  const [favorites, setFavorites] = useState([]);
+
+  const addToFavorites = (recipe) => {
+    const isFavorite = favorites.some(
+      (favorite) => favorite.label === recipe.label
+    );
+
+    if (!isFavorite) {
+      setFavorites((prevFavorites) => [...prevFavorites, recipe]);
+    }
+  };
+
+  const removeFromFavorites = (recipeLabel) => {
+    const updatedFavorites = favorites.filter(
+      (favorite) => favorite.label !== recipeLabel
+    );
+    setFavorites(updatedFavorites);
+  };
 
   const APP_ID = "716bd830";
   const API_KEY = "7445e3656ca5026352eee8a94611c23e";
@@ -52,6 +69,9 @@ const AppProvider = ({ children }) => {
         setSearch,
         mealType,
         setMealType,
+        favorites,
+        addToFavorites,
+        removeFromFavorites,
       }}
     >
       {children}

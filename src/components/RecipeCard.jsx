@@ -9,22 +9,18 @@ import { AppContextComp } from "../context/AppProvider";
 const RecipeCard = ({ recipe }) => {
   const navigate = useNavigate();
   const [heart, setHeart] = useState(false);
-  const { isLoggedIn } = AppContextComp();
-  // const { favorites, setFavorites } = AppContextComp();
+  const { isLoggedIn, addToFavorites, removeFromFavorites } = AppContextComp();
 
   const { label, image } = recipe;
 
   const handleFavorite = () => {
     setHeart(true);
-    // const updatedFavorites = favorites || [];
-    // updatedFavorites.push({ label, image });
-    // setFavorites(updatedFavorites);
+    addToFavorites(recipe);
   };
 
   const handleUnFavorite = () => {
     setHeart(false);
-    // const updatedFavorites = favorites.filter((item) => item.label !== label);
-    // setFavorites(updatedFavorites);
+    removeFromFavorites(recipe.label);
   };
 
   const handleViewRecipe = () => {
@@ -67,7 +63,7 @@ const RecipeCard = ({ recipe }) => {
             color="#e84b11"
             weight={"fill"}
             style={{ marginLeft: ".5rem" }}
-            onClick={handleUnFavorite}
+            onClick={(e) => handleUnFavorite(e)}
           />
         ) : (
           <Heart
@@ -75,7 +71,7 @@ const RecipeCard = ({ recipe }) => {
             color="#e84b11"
             weight={"regular"}
             style={{ marginLeft: ".5rem" }}
-            onClick={handleFavorite}
+            onClick={(e) => handleFavorite(e)}
           />
         )}
       </div>
