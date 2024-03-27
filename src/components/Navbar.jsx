@@ -55,7 +55,10 @@ const Navbar = () => {
             </NavbarLinkBtn>
           ) : (
             <Link to={"/login"} style={linkStyle}>
-              <NavbarLink isActive={location.pathname === "/login"}>
+              <NavbarLink
+                isActive={location.pathname === "/login"}
+                style={{ marginRight: "2rem" }}
+              >
                 Login
               </NavbarLink>
             </Link>

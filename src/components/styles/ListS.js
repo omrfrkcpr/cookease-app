@@ -39,18 +39,17 @@ export const NavbarUl = styled.ul`
   height: 2rem;
   margin-top: 2rem;
   justify-content: center;
+  list-style-type: none;
+  text-align: center;
   align-items: center;
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     gap: 1rem;
-    height: 1.5rem;
     margin-top: 0rem;
   }
 `;
 
 export const NavbarLi = styled.li`
-  list-style-type: none;
   font-size: 1.5rem;
-
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     font-size: 1.3rem;
   }

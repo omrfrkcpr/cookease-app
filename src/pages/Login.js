@@ -1,11 +1,11 @@
 import React from "react";
 import { PageContainerS } from "../components/styles/ContainerS";
-import LoginRegisterForm from "../components/LoginRegisterForm";
+import LoginForm from "../components/LoginForm";
 
 const Login = () => {
   return (
     <PageContainerS login>
-      <LoginRegisterForm />
+      <LoginForm />
     </PageContainerS>
   );
 };

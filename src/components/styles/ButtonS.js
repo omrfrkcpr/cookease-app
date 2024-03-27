@@ -15,7 +15,7 @@ export const RecipeCardBtn = styled.button`
 
 export const SearchBtn = styled.button`
   border: none;
-  padding: 0.1rem 0.8rem;
+  padding: 0.2rem 0.8rem;
   color: white;
   background-color: #ff6318;
   &:hover {
@@ -30,13 +30,17 @@ export const SearchBtn = styled.button`
 
 export const SelectS = styled.select`
   border: none;
-  padding: 0.1rem 0;
+  padding: 0.2rem 0;
   margin-right: 0.2rem;
   color: black;
   background-color: #f2dfb3;
   text-align: center;
   &:focus {
     outline: none;
+  }
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
+    border-radius: 15px;
+    padding: 0;
   }
 `;
 
@@ -57,7 +61,7 @@ export const GoBackBtn = styled.button`
   }
 `;
 
-export const LoginRegisterBtn = styled.button`
+export const LoginBtn = styled.button`
   width: 100px;
   border: none;
   border-radius: 10px;

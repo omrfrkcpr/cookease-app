@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
 export const InputS = styled.input`
-  width: 60%;
+  width: 55%;
   max-width: 500px;
   margin: 0.1rem;
   padding: 0.1rem 0.5rem;
   &:focus {
     outline: none;
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
+    width: 70%;
   }
 `;
 
@@ -21,7 +25,7 @@ export const FormInputS = styled.input`
   }
 
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
-    width: 180px;
+    width: 150px;
     font-size: 0.9rem;
   }
 `;

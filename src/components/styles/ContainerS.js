@@ -147,9 +147,25 @@ export const AboutContainerS = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-height: 90%;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #a8a8a8;
+    border-radius: 3px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    width: 6px;
+    background: #888;
+  }
 `;
 
-export const LoginRegisterFormContainerS = styled.div`
+export const LoginFormContainerS = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
