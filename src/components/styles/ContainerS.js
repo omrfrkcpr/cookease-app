@@ -67,6 +67,8 @@ export const PageContainerS = styled.div`
   padding: 0.5rem;
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     padding: 0rem;
+    min-height: ${(props) =>
+      props.login ? "calc(100vh - 323px)" : "calc(100vh - 236px)"};
   }
 `;
 

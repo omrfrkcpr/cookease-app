@@ -13,7 +13,6 @@ import Login from "../pages/Login";
 import NotFound from "../components/NotFound";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Register from "../pages/Register";
 
 const AppRouter = () => {
   return (
@@ -22,13 +21,12 @@ const AppRouter = () => {
         <Navbar />
         <Outlet />
         <Routes>
-          <Route path="/" element={<Register />} />
+          <Route exact path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/details/:food" element={<Details />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

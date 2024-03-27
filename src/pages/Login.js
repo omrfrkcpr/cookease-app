@@ -5,7 +5,7 @@ import LoginRegisterForm from "../components/LoginRegisterForm";
 const Login = () => {
   return (
     <PageContainerS login>
-      <LoginRegisterForm formType="login" />
+      <LoginRegisterForm />
     </PageContainerS>
   );
 };

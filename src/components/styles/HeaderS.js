@@ -19,3 +19,12 @@ export const AboutH1 = styled.h1`
 export const AboutH3and4 = styled.h3`
   color: #6b675f;
 `;
+
+export const FormH3 = styled.h3`
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
+    font-size: 1.5rem;
+  }
+`;

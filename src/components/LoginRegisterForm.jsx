@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FormS, LoginRegisterFormContainerS } from "./styles/ContainerS";
 import { FormInputS } from "./styles/InputS";
 import { LoginRegisterBtn } from "./styles/ButtonS";
+import { FormH3 } from "./styles/HeaderS";
 
 const LoginRegisterForm = ({ formType }) => {
   const { setIsLoggedIn } = AppContextComp();
@@ -18,7 +19,7 @@ const LoginRegisterForm = ({ formType }) => {
 
   return (
     <LoginRegisterFormContainerS>
-      <h3 style={{ color: "white" }}>Cookease App</h3>
+      <FormH3 style={{ color: "white" }}>Cookease App</FormH3>
       <FormS onSubmit={handleSubmit}>
         <FormInputS type="text" required placeholder="Enter random username" />
         <FormInputS
