@@ -57,7 +57,7 @@ export const PageContainerS = styled.div`
   background-size: ${(props) => props.notFound && "contain"};
   min-height: calc(100vh - 236px);
   background-image: ${(props) =>
-    props.about
+    props.about === "true"
       ? `url(${aboutBg})`
       : props.notFound
       ? `url(${notFound})`

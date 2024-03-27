@@ -8,7 +8,7 @@ import { AboutH1, AboutH3and4 } from "../components/styles/HeaderS";
 
 const About = () => {
   return (
-    <PageContainerS about>
+    <PageContainerS about="true">
       <AboutContainerS>
         <div style={{ marginBottom: "3rem" }}>
           <AboutH1>Welcome!</AboutH1>

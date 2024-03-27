@@ -28,9 +28,7 @@ const Form = () => {
           id="mealTypes"
           onChange={(e) => setMealType(e.target.value)}
         >
-          <option selected value="all">
-            All
-          </option>
+          <option value="all">All</option>
           <option value="breakfast">Breakfast</option>
           <option value="brunch">Brunch</option>
           <option value="lunch/dinner">Lunch/Dinner</option>
