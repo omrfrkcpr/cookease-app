@@ -26,6 +26,10 @@ export const SearchBtn = styled.button`
     margin-top: 1rem;
     border-radius: 15px;
   }
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
+    font-size: 0.8rem;
+    padding: 0rem 0.6rem;
+  }
 `;
 
 export const SelectS = styled.select`
@@ -41,6 +45,9 @@ export const SelectS = styled.select`
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     border-radius: 15px;
     padding: 0;
+  }
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
+    font-size: 0.8rem;
   }
 `;
 

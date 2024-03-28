@@ -6,6 +6,10 @@ export const NavbarLink = styled.span`
   &:hover {
     color: white;
   }
+
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
+    font-size: 1rem;
+  }
 `;
 
 export const FavoritesSpan = styled.span`

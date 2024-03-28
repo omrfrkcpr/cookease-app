@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components";
 import AppProvider from "./context/AppProvider";
 
 const globalStyle = {
+  responsiveExtraSmall: "500px",
   responsiveSmall: "700px",
   responsiveLarge: "1000px",
 };

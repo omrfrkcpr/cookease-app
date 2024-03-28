@@ -8,6 +8,7 @@ const responsiveFontSize = `
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     font-size: 1.3rem;
   }
+  
 `;
 
 const borderBottom = `
@@ -19,6 +20,9 @@ export const HeaderH1 = styled.h1`
   ${responsiveFontSize}
   color: black;
   padding: 2rem 0;
+  @media screen and (max-width: ${({ theme }) => theme.responsiveExtraSmall}) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const AboutH1 = styled.h1`

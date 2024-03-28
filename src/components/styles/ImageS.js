@@ -16,6 +16,10 @@ export const LogoS = styled.img`
     width: 100px;
     height: 80px;
   }
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
+    width: 60px;
+    height: 50px;
+  }
 `;
 
 export const RecipeCardImg = styled.img`

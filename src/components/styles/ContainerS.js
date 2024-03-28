@@ -21,6 +21,10 @@ const containerStyles = css`
     flex-direction: column;
     gap: 2rem;
   }
+  @media screen and (max-width: ${({ theme }) => theme.responsiveExtraSmall}) {
+    gap: 1rem;
+    padding: 1rem 0.5rem 0;
+  }
 `;
 
 export const CenterAlignForm = styled.div`
