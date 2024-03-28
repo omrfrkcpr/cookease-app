@@ -4,7 +4,7 @@ import LoginForm from "../components/LoginForm";
 
 const SignUp = () => {
   return (
-    <PageContainerS register>
+    <PageContainerS signup>
       <LoginForm formType="signup" />
     </PageContainerS>
   );

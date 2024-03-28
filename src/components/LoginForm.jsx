@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AppContextComp } from "../context/AppProvider";
 import { useNavigate } from "react-router-dom";
 import {
@@ -7,12 +7,17 @@ import {
   LoginFormContainerS,
 } from "./styles/ContainerS";
 import { FormInputS, FormLabelS } from "./styles/InputS";
-import { LoginBtn } from "./styles/ButtonS";
+import { HelpBtns, LoginBtn, PasswordVisibleBtn } from "./styles/ButtonS";
 import { FormH3 } from "./styles/HeaderS";
+import {
+  Eye,
+  EyeSlash,
+  UserCircle,
+  UserCirclePlus,
+} from "@phosphor-icons/react";
 
 const LoginForm = ({ formType }) => {
   const {
-    isLoggedIn,
     setIsLoggedIn,
     isRegistered,
     setIsRegistered,
@@ -28,8 +33,35 @@ const LoginForm = ({ formType }) => {
     setLocalPassword,
   } = AppContextComp();
 
-  const [isForgot, setIsForgot] = useState(false);
   const navigate = useNavigate();
+
+  const [isForgot, setIsForgot] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmVisible, setConfirmVisible] = useState(false);
+  const [iconSize, setIconSize] = useState(128);
+
+  const handlePasswordToggle = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
+  const handleConfirmToggle = () => {
+    setConfirmVisible(!confirmVisible);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 700) {
+        setIconSize(96);
+      } else if (window.innerWidth < 500) {
+        setIconSize(64);
+      } else {
+        setIconSize(128);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -116,8 +148,26 @@ const LoginForm = ({ formType }) => {
     } else return confirmPass;
   };
 
+  const handleAnotherAccount = () => {
+    setLocalPassword("");
+    setPassword("");
+    setUsername("");
+    setLocalUsername("");
+    setConfirmPass("");
+    localStorage.clear();
+    setIsRegistered(false);
+    navigate("/signup");
+  };
+
   return (
     <LoginFormContainerS>
+      <div style={{ marginBottom: "1.5rem" }}>
+        {formType === "login" ? (
+          <UserCircle size={iconSize} color="#6b675f" />
+        ) : (
+          <UserCirclePlus size={iconSize} color="#6b675f" />
+        )}
+      </div>
       <FormH3 style={{ color: "black" }}>Cookease App</FormH3>
       <FormS onSubmit={handleSubmit}>
         <CenterAlignForm>
@@ -131,19 +181,26 @@ const LoginForm = ({ formType }) => {
             onChange={(e) => handleUsername(e)}
           />
         </CenterAlignForm>
-        <CenterAlignForm>
+        <CenterAlignForm style={{ position: "relative" }}>
           <FormLabelS htmlFor="password">Password*</FormLabelS>
           <FormInputS
-            type="password"
+            type={passwordVisible ? "text" : "password"}
             id="password"
             required
             placeholder="Enter password"
             value={handlePasswordValue()}
             onChange={(e) => handlePassword(e)}
           />
+          <PasswordVisibleBtn type="button" onClick={handlePasswordToggle}>
+            {passwordVisible ? (
+              <Eye size={16} color="#6b675f" />
+            ) : (
+              <EyeSlash size={16} color="#6b675f" />
+            )}
+          </PasswordVisibleBtn>
         </CenterAlignForm>
         {formType === "signup" && (
-          <CenterAlignForm>
+          <CenterAlignForm style={{ position: "relative" }}>
             <FormLabelS htmlFor="password">Confirm Password*</FormLabelS>
             <FormInputS
               type="password"
@@ -153,25 +210,44 @@ const LoginForm = ({ formType }) => {
               value={handleConfirmValue()}
               onChange={(e) => handleConfirm(e)}
             />
+
+            <PasswordVisibleBtn type="button" onClick={handleConfirmToggle}>
+              {confirmVisible ? (
+                <Eye size={16} color="#6b675f" />
+              ) : (
+                <EyeSlash size={16} color="#6b675f" />
+              )}
+            </PasswordVisibleBtn>
           </CenterAlignForm>
         )}
 
         {formType === "login" ? (
-          <LoginBtn type="submit">Login</LoginBtn>
+          <LoginBtn type="submit" login>
+            Login
+          </LoginBtn>
         ) : (
-          <LoginBtn type="submit">Sign Up</LoginBtn>
+          <LoginBtn type="submit" signup>
+            Sign Up
+          </LoginBtn>
         )}
         {formType === "login" && (
           <div>
-            {!isRegistered && (
+            {isRegistered === false ? (
               <div style={{ marginTop: "1rem" }}>
                 Need An Account?{" "}
-                <button onClick={() => navigate("/signup")}>Sign Up</button>
+                <HelpBtns onClick={() => navigate("/signup")}>Sign Up</HelpBtns>
+              </div>
+            ) : (
+              <div style={{ marginTop: "1rem" }}>
+                Need Another Account?{" "}
+                <HelpBtns onClick={() => handleAnotherAccount()}>
+                  Create Account
+                </HelpBtns>
               </div>
             )}
             <div style={{ marginTop: "1rem" }}>
               Forgot Password?{" "}
-              <button onClick={() => handleGetInfo()}>Get Info</button>
+              <HelpBtns onClick={() => handleGetInfo()}>Get Info</HelpBtns>
             </div>
           </div>
         )}

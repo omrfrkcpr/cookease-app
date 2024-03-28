@@ -59,7 +59,8 @@ export const HeaderContainerS = styled.div`
 
 export const PageContainerS = styled.div`
   position: relative;
-  background-repeat: ${(props) => (props.login ? "repeat" : "no-repeat")};
+  background-repeat: ${(props) =>
+    props.login || props.signup ? "repeat" : "no-repeat"};
   background-position: center;
   background-size: ${(props) => props.notFound && "contain"};
   min-height: calc(100vh - 236px);
@@ -68,7 +69,7 @@ export const PageContainerS = styled.div`
       ? `url(${aboutBg})`
       : props.notFound
       ? `url(${notFound})`
-      : props.login
+      : props.login || props.signup
       ? `url(${loginBg})`
       : "linear-gradient(to bottom, #feada6 20%, #f5efef 30%)"};
   padding: ${(props) => (props.notFound ? "3rem 0 0 0" : "0.5rem")};
@@ -76,7 +77,15 @@ export const PageContainerS = styled.div`
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     padding: 0rem;
     min-height: ${(props) =>
-      props.login ? "calc(100vh - 323px)" : "calc(100vh - 236px)"};
+      props.login || props.signup
+        ? "calc(100vh - 323px)"
+        : "calc(100vh - 236px)"};
+  }
+  @media screen and (max-width: ${({ theme }) => theme.responsiveExtraSmall}) {
+    min-height: ${(props) =>
+      props.login || props.signup
+        ? "calc(100vh - 269px)"
+        : "calc(100vh - 236px)"};
   }
 `;
 
@@ -172,14 +181,13 @@ export const LoginFormContainerS = styled.div`
   flex-direction: column;
   width: 70%;
   max-width: 400px;
-  max-height: 600px;
-  /* background-image: url(${cookie}); */
+  max-height: 80%;
   background-color: white;
-  border: 5px solid #feada6;
+  box-shadow: 2px 2px 8px black;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 80%;
+  height: 600px;
 `;
 
 export const FormS = styled.form`

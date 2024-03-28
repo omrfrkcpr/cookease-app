@@ -73,11 +73,11 @@ export const LoginBtn = styled.button`
   border: none;
   border-radius: 10px;
   padding: 0.2rem 0.8rem;
-  margin: auto;
-  background-color: #f7c006;
+  margin: 1rem auto;
+  background-color: ${({ login }) => (login ? "#f7c006" : "lightgreen")};
   &:hover {
     color: white;
-    background-color: #967713;
+    background-color: ${({ login }) => (login ? "#967713" : "darkgreen")};
     transition-duration: 0.5s;
   }
 `;
@@ -105,5 +105,24 @@ export const FavoriteBtn = styled.button`
     color: white;
     transition-duration: 0.5s;
     font-weight: bolder;
+  }
+`;
+
+export const PasswordVisibleBtn = styled.button`
+  border: none;
+  background-color: inherit;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  margin-top: 0.1rem;
+`;
+
+export const HelpBtns = styled.button`
+  border: none;
+  background-color: inherit;
+  color: #107fd3;
+  font-weight: 500;
+  &:hover {
+    text-decoration: underline;
   }
 `;

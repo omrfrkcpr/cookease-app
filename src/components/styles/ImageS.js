@@ -13,10 +13,11 @@ export const LogoS = styled.img`
   background-color: #ff6318;
 
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
-    width: 100px;
-    height: 80px;
+    width: 83px;
+    height: 63px;
+    margin-top: 0.5rem;
   }
-  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
+  @media screen and (max-width: ${({ theme }) => theme.responsiveExtraSmall}) {
     width: 60px;
     height: 50px;
   }

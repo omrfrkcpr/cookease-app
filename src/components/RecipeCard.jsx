@@ -13,8 +13,13 @@ import { RecipeCardH4 } from "./styles/HeaderS";
 const RecipeCard = ({ recipe }) => {
   const navigate = useNavigate();
   const [isFavorite, setIsFavorite] = useState(false);
-  const { favorites, isLoggedIn, addToFavorites, removeFromFavorites } =
-    useContext(AppContext);
+  const {
+    favorites,
+    isLoggedIn,
+    isRegistered,
+    addToFavorites,
+    removeFromFavorites,
+  } = useContext(AppContext);
 
   useEffect(() => {
     // After every new search check recipe.label in favorites array to get filled or regular Heart icon
@@ -43,6 +48,8 @@ const RecipeCard = ({ recipe }) => {
   const handleViewRecipe = () => {
     if (isLoggedIn) {
       navigate(`/details/${label}`, { state: { recipe } });
+    } else if (!isRegistered) {
+      navigate("/signup");
     } else {
       navigate("/login");
     }

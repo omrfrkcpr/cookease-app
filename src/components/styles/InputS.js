@@ -15,7 +15,7 @@ export const InputS = styled.input`
 `;
 
 export const FormInputS = styled.input`
-  width: 200px;
+  width: 220px;
   margin: 0.3rem auto;
   padding: 0.2rem 0.5rem;
   border-radius: 10px;
@@ -26,7 +26,7 @@ export const FormInputS = styled.input`
   }
 
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
-    width: 150px;
+    width: 200px;
     font-size: 0.9rem;
   }
 `;
