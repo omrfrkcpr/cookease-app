@@ -6,11 +6,22 @@ export const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("");
   const [search, setSearch] = useState("");
   const [mealType, setMealType] = useState("all");
   const [favorites, setFavorites] = useState([]);
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
+  const [localUsername, setLocalUsername] = useState(
+    localStorage.getItem("localUsername") || ""
+  );
+  const [localPassword, setLocalPassword] = useState(
+    localStorage.getItem("localPassword") || ""
+  );
 
   const addToFavorites = (recipe) => {
     const isFavorite = favorites.some(
@@ -70,7 +81,19 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         isLoggedIn,
+        isRegistered,
+        username,
+        password,
+        confirmPass,
+        localUsername,
+        localPassword,
         setIsLoggedIn,
+        setIsRegistered,
+        setUsername,
+        setPassword,
+        setConfirmPass,
+        setLocalUsername,
+        setLocalPassword,
         recipes,
         setRecipes,
         query,

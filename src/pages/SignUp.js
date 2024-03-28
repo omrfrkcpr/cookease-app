@@ -2,12 +2,12 @@ import React from "react";
 import { PageContainerS } from "../components/styles/ContainerS";
 import LoginForm from "../components/LoginForm";
 
-const Login = () => {
+const SignUp = () => {
   return (
-    <PageContainerS login>
-      <LoginForm formType="login" />
+    <PageContainerS register>
+      <LoginForm formType="signup" />
     </PageContainerS>
   );
 };
 
-export default Login;
+export default SignUp;

@@ -23,6 +23,11 @@ const containerStyles = css`
   }
 `;
 
+export const CenterAlignForm = styled.div`
+  ${centerAlign}
+  flex-direction: column;
+`;
+
 export const NavbarContainerS = styled.div`
   ${containerStyles}
   justify-content: space-between;
@@ -163,12 +168,14 @@ export const LoginFormContainerS = styled.div`
   flex-direction: column;
   width: 70%;
   max-width: 400px;
-  max-height: 400px;
-  background-image: url(${cookie});
+  max-height: 600px;
+  /* background-image: url(${cookie}); */
+  background-color: white;
+  border: 5px solid #feada6;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 70%;
+  height: 80%;
 `;
 
 export const FormS = styled.form`

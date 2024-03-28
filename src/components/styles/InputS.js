@@ -20,6 +20,7 @@ export const FormInputS = styled.input`
   padding: 0.2rem 0.5rem;
   border-radius: 10px;
   border: 1px solid grey;
+  text-align: center;
   &:focus {
     outline: none;
   }
@@ -28,4 +29,8 @@ export const FormInputS = styled.input`
     width: 150px;
     font-size: 0.9rem;
   }
+`;
+
+export const FormLabelS = styled.label`
+  font-weight: bolder;
 `;

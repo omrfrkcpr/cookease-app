@@ -18,7 +18,21 @@ const Navbar = () => {
   // get current url pathname from location
   const location = useLocation();
   const navigate = useNavigate();
-  const { isLoggedIn, setIsLoggedIn, favorites } = AppContextComp();
+  const {
+    isLoggedIn,
+    setIsLoggedIn,
+    favorites,
+    setUsername,
+    setPassword,
+    setIsRegistered,
+  } = AppContextComp();
+
+  const handleLogOut = () => {
+    setIsLoggedIn(false);
+    setIsRegistered(true);
+    setUsername("");
+    setPassword("");
+  };
 
   return (
     <NavbarContainerS>
@@ -55,7 +69,7 @@ const Navbar = () => {
         </NavbarLi>
         <NavbarLi>
           {isLoggedIn ? (
-            <NavbarLinkBtn onClick={() => setIsLoggedIn(false)}>
+            <NavbarLinkBtn onClick={handleLogOut}>
               <NavbarLink isActive={location.pathname === "/login"}>
                 Logout
               </NavbarLink>
