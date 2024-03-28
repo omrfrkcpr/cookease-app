@@ -59,3 +59,7 @@ export const NutritionsUl = styled.ul`
   list-style-type: none;
   text-align: left;
 `;
+
+export const IngredientsOl = styled.ol`
+  text-align: left;
+`;

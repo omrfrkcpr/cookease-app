@@ -3,13 +3,26 @@ import { useLocation, useNavigate } from "react-router-dom";
 import {
   DetailCardContainerS,
   DetailsContainerS,
+  DetailsGeneral,
+  DetailsGeneralSpanContainer,
 } from "../components/styles/ContainerS";
-import { DetailsCardImg } from "../components/styles/ImageS";
+import { DetailsCardImg, FlagImg } from "../components/styles/ImageS";
 import { GoBackBtn } from "../components/styles/ButtonS";
 import { Globe, GlobeHemisphereWest } from "@phosphor-icons/react";
 import EU from "../assets/europe-flag-icon.png";
-import { NutritionsUl } from "../components/styles/ListS";
+import { IngredientsOl, NutritionsUl } from "../components/styles/ListS";
 import { MoreHyperLinkS } from "../components/styles/HyperLinkS";
+import {
+  CousineSpan,
+  CousineSpanValue,
+  NutrientsLabelSpan,
+} from "../components/styles/SpanS";
+import {
+  DetailsCardLabel,
+  DetailsInfoTitleH3,
+  MealTypeP,
+} from "../components/styles/HeaderS";
+import imgNotFound from "../assets/img-not-found.jpg";
 
 const Details = () => {
   const {
@@ -77,138 +90,112 @@ const Details = () => {
   return (
     <DetailsContainerS>
       <DetailCardContainerS>
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-          <h3>{label}</h3>
+        <DetailsGeneral>
+          <DetailsCardLabel>{label}</DetailsCardLabel>
 
           {countryCode && (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItem: "center",
-                gap: ".5rem",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: "1.5rem",
-                  marginTop: ".3rem",
-                }}
-              >
+            <DetailsGeneralSpanContainer>
+              <CousineSpan>
                 Couisine :{" "}
-                <span style={{ color: "indianred", fontWeight: "bolder" }}>
+                <CousineSpanValue>
                   {cuisineType.toString() === "mediterranean" ||
                   cuisineType.toString() === "middle eastern"
                     ? "Turkish"
                     : cuisineType.toString().charAt(0).toUpperCase() +
                       cuisineType.toString().slice(1).toLowerCase()}
-                </span>
-              </span>
+                </CousineSpanValue>
+              </CousineSpan>
               <div>
                 {countryCode === "Globe" ? (
                   <Globe size={45} color="#3f74ca" weight="light" />
                 ) : countryCode === "world" ? (
                   <GlobeHemisphereWest size={32} color="#3f74ca" />
                 ) : (
-                  <img
+                  <FlagImg
                     src={
                       countryCode === "EU"
                         ? EU
                         : `https://flagsapi.com/${countryCode}/flat/32.png`
                     }
                     alt="Flag"
-                    width="50px"
                   />
                 )}
               </div>
-            </div>
+            </DetailsGeneralSpanContainer>
           )}
-          <p style={{ fontSize: "1.5rem" }}>
+          <MealTypeP>
             Meal Type :{" "}
-            <span style={{ color: "indianred", fontWeight: "bolder" }}>
-              {formatMealType(mealType)}
-            </span>
-          </p>
-          <DetailsCardImg
-            src={image}
-            alt={`${label}-img`}
-            style={{ margin: "auto" }}
-          />
-          <div
-            style={{
-              textAlign: "center",
-            }}
-          >
+            <CousineSpanValue>{formatMealType(mealType)}</CousineSpanValue>
+          </MealTypeP>
+          <DetailsCardImg src={image || imgNotFound} alt={`${label}-img`} />
+          <div>
             <GoBackBtn onClick={() => navigate(-1)}>Go Back</GoBackBtn>
-            <MoreHyperLinkS
-              href={`${url}`}
-              target="blank"
-              style={{ textDecoration: "none", marginLeft: "1rem" }}
-            >
+            <MoreHyperLinkS href={`${url}`} target="blank">
               More...
             </MoreHyperLinkS>
           </div>
-        </div>
+        </DetailsGeneral>
         <div>
           <div>
-            <h3 style={{ borderBottom: "2px solid black" }}>NUTRIENTS</h3>
+            <DetailsInfoTitleH3>NUTRIENTS</DetailsInfoTitleH3>
             <NutritionsUl>
               <li>
-                <span>
-                  {calories && `Calories = ${Math.trunc(calories)} cal`}
-                </span>
+                <NutrientsLabelSpan>
+                  {calories && `Calories : `}
+                </NutrientsLabelSpan>
+                <span>{calories && `${Math.trunc(calories)}cal`}</span>
               </li>
               <li>
-                <span>{ENERGY_CAL?.label}</span> {ENERGY_CAL ? ":" : ""}{" "}
+                <NutrientsLabelSpan>{FAT?.label}</NutrientsLabelSpan>{" "}
+                {FAT ? ":" : ""}{" "}
                 <span>
-                  {ENERGY_CAL?.quantity}
-                  {ENERGY_CAL?.unit}
-                </span>
-              </li>
-              <li>
-                <span>{FAT?.label}</span> {FAT ? ":" : ""}{" "}
-                <span>
-                  {FAT?.quantity}
+                  {Math.trunc(FAT?.quantity)}
                   {FAT?.unit}
                 </span>
               </li>
               <li>
-                <span>{CHOCDF?.label}</span> {CHOCDF ? ":" : ""}{" "}
+                <NutrientsLabelSpan>{CHOCDF?.label}</NutrientsLabelSpan>{" "}
+                {CHOCDF ? ":" : ""}{" "}
                 <span>
-                  {CHOCDF?.quantity}
+                  {Math.trunc(CHOCDF?.quantity)}
                   {CHOCDF?.unit}
                 </span>
               </li>
               <li>
-                <span>{PROCNT?.label}</span> {PROCNT ? ":" : ""}{" "}
+                <NutrientsLabelSpan>{PROCNT?.label}</NutrientsLabelSpan>{" "}
+                {PROCNT ? ":" : ""}{" "}
                 <span>
-                  {PROCNT?.quantity}
+                  {Math.trunc(PROCNT?.quantity)}
                   {PROCNT?.unit}
                 </span>
               </li>
               <li>
-                <span>{CHOLE?.label}</span> {CHOLE ? ":" : ""}{" "}
+                <NutrientsLabelSpan>{CHOLE?.label}</NutrientsLabelSpan>{" "}
+                {CHOLE ? ":" : ""}{" "}
                 <span>
-                  {CHOLE?.quantity}
+                  {Math.trunc(CHOLE?.quantity)}
                   {CHOLE?.unit}
                 </span>
               </li>
               <li>
-                <span>{SUGAR?.label}</span> {SUGAR ? ":" : ""}{" "}
+                <NutrientsLabelSpan>{SUGAR?.label}</NutrientsLabelSpan>{" "}
+                {SUGAR ? ":" : ""}{" "}
                 <span>
-                  {SUGAR?.quantity}
+                  {Math.trunc(SUGAR?.quantity)}
                   {SUGAR?.unit}
                 </span>
               </li>
             </NutritionsUl>
           </div>
           <div>
-            <h3 style={{ borderBottom: "2px solid black" }}>INGREDIENTS</h3>
-            <ol style={{ textAlign: "left" }}>
+            <DetailsInfoTitleH3>INGREDIENTS</DetailsInfoTitleH3>
+            <IngredientsOl>
               {ingredients.map((ingredient, index) => (
-                <li key={index}>{ingredient.text}</li>
+                <li style={{ marginLeft: "1rem" }} key={index}>
+                  {ingredient.text}
+                </li>
               ))}
-            </ol>
+            </IngredientsOl>
           </div>
         </div>
       </DetailCardContainerS>

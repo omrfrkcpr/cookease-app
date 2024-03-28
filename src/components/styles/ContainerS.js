@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import banner from "../../assets/banner.jpg";
 import bgImg from "../../assets/details-bg.jpg";
 import aboutBg from "../../assets/about-bg.jpg";
@@ -6,36 +6,34 @@ import notFound from "../../assets/404.avif";
 import loginBg from "../../assets/login-bg.gif";
 import cookie from "../../assets/cookie.png";
 
-export const NavbarContainerS = styled.div`
+const centerAlign = css`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+`;
+
+const containerStyles = css`
+  ${centerAlign}
   padding: 0.5rem 2rem 1rem;
   background-image: linear-gradient(to top, #feada6 40%, #f5efef 110%);
-  align-items: center;
-
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     flex-direction: column;
-    text-align: center;
-    justify-content: center;
     gap: 2rem;
-    align-items: center;
   }
+`;
+
+export const NavbarContainerS = styled.div`
+  ${containerStyles}
+  justify-content: space-between;
 `;
 
 export const FooterContainerS = styled(NavbarContainerS)`
-  padding: 2rem 2rem;
-
-  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
+  padding: 2rem;
 `;
 
 export const HeaderContainerS = styled.div`
-  display: flex;
+  ${centerAlign}
   flex-direction: column;
   justify-content: start;
   align-items: center;
@@ -64,7 +62,8 @@ export const PageContainerS = styled.div`
       : props.login
       ? `url(${loginBg})`
       : "linear-gradient(to bottom, #feada6 20%, #f5efef 30%)"};
-  padding: 0.5rem;
+  padding: ${(props) => (props.notFound ? "3rem 0 0 0" : "0.5rem")};
+  text-align: ${(props) => props.notFound && "center"};
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     padding: 0rem;
     min-height: ${(props) =>
@@ -73,20 +72,17 @@ export const PageContainerS = styled.div`
 `;
 
 export const NotFoundContainerS = styled.div`
+  ${centerAlign}
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     padding: 7rem;
   }
 `;
 
 export const RecipeCardContainerS = styled.div`
-  display: flex;
+  ${centerAlign}
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   padding: 1rem;
   height: 470px;
-  text-align: center;
   background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
   border: 2px solid grey;
   border-radius: 15px;
@@ -104,24 +100,16 @@ export const DetailsContainerS = styled.div`
 `;
 
 export const DetailCardContainerS = styled.div`
-  display: flex;
+  ${centerAlign}
   border-radius: 10px;
   box-shadow: 0px 5px 20px rgb(71, 71, 71);
-  justify-content: center;
-  align-items: center;
   padding: 1.5rem;
   background-color: wheat;
-  text-align: center;
   width: fit-content;
   margin: auto;
   gap: 1rem;
-
-  @media screen and (max-width: ${({ theme }) => theme.responsiveLarge}) {
-    display: flex;
+  @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
   }
 `;
 
@@ -131,19 +119,20 @@ export const FormContainerS = styled.div`
 `;
 
 export const EmptyContainerS = styled.div`
+  ${centerAlign}
   min-height: calc(100vh - 236px);
   background-color: #1394b2;
-  text-align: center;
 `;
 
 export const AboutContainerS = styled.div`
+  ${centerAlign}
   width: 90%;
   margin: auto;
-  /* backdrop-filter: blur(10px); */
   box-shadow: 2px 2px 2px gray;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 1rem;
   position: absolute;
+  flex-direction: column;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -166,11 +155,11 @@ export const AboutContainerS = styled.div`
 `;
 
 export const LoginFormContainerS = styled.div`
+  ${centerAlign}
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
   flex-direction: column;
   width: 70%;
   max-width: 400px;
@@ -179,14 +168,31 @@ export const LoginFormContainerS = styled.div`
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  text-align: center;
   height: 70%;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const FormS = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+`;
+
+export const RecipeCardImgContainerS = styled.div`
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  margin: 1rem;
+`;
+
+export const DetailsGeneral = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+export const DetailsGeneralSpanContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 `;

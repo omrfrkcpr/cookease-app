@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { RecipeCardContainerS } from "./styles/ContainerS";
+import {
+  RecipeCardContainerS,
+  RecipeCardImgContainerS,
+} from "./styles/ContainerS";
 import { RecipeCardImg } from "./styles/ImageS";
 import { RecipeCardBtn } from "./styles/ButtonS";
 import { Heart } from "@phosphor-icons/react";
-import { AppContextComp } from "../context/AppProvider";
+import { AppContext } from "../context/AppProvider";
+import { RecipeCardH4 } from "./styles/HeaderS";
 
 const RecipeCard = ({ recipe }) => {
   const navigate = useNavigate();
   const [isFavorite, setIsFavorite] = useState(false);
   const { favorites, isLoggedIn, addToFavorites, removeFromFavorites } =
-    AppContextComp();
+    useContext(AppContext);
+
+  useEffect(() => {
+    // After every new search check recipe.label in favorites array to get filled or regular Heart icon
+    const isRecipeFavorite = favorites.some(
+      (fav) => fav.label === recipe.label
+    );
+    setIsFavorite(isRecipeFavorite);
+  }, [favorites, recipe.label]);
 
   const { label, image } = recipe;
 
@@ -21,10 +33,6 @@ const RecipeCard = ({ recipe }) => {
     } else {
       navigate("/login");
     }
-  };
-
-  const isAlreadyFavorite = (checkLabel) => {
-    favorites.map((item) => item.label === checkLabel && setIsFavorite(true));
   };
 
   const handleUnFavorite = () => {
@@ -42,45 +50,27 @@ const RecipeCard = ({ recipe }) => {
 
   return (
     <RecipeCardContainerS recipe>
-      <h4
-        style={{
-          height: "80px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-          borderBottom: "2px solid black",
-        }}
-      >
-        {label}
-      </h4>
-      <div
-        style={{
-          width: "250px",
-          height: "250px",
-          overflow: "hidden",
-          margin: "1rem",
-        }}
-      >
+      <RecipeCardH4>{label}</RecipeCardH4>
+      <RecipeCardImgContainerS>
         <RecipeCardImg src={image} alt={`${label}-img`} />
-      </div>
+      </RecipeCardImgContainerS>
       <div className="buttons">
         <RecipeCardBtn onClick={handleViewRecipe}>View Recipe</RecipeCardBtn>
-        {isFavorite || isAlreadyFavorite(label) ? (
+        {isFavorite ? (
           <Heart
             size={32}
             color="#e84b11"
             weight={"fill"}
-            style={{ marginLeft: ".5rem" }}
-            onClick={(e) => handleUnFavorite(e)}
+            style={{ marginLeft: ".5rem", cursor: "pointer" }}
+            onClick={handleUnFavorite}
           />
         ) : (
           <Heart
             size={32}
             color="#e84b11"
             weight={"regular"}
-            style={{ marginLeft: ".5rem" }}
-            onClick={(e) => handleFavorite(e)}
+            style={{ marginLeft: ".5rem", cursor: "pointer" }}
+            onClick={handleFavorite}
           />
         )}
       </div>

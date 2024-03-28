@@ -3,12 +3,14 @@ import { useNavigate } from "react-router-dom";
 import {
   PageContainerS,
   RecipeCardContainerS,
+  RecipeCardImgContainerS,
 } from "../components/styles/ContainerS";
 import { RecipeCardImg } from "../components/styles/ImageS";
 import { FavoriteBtn, RecipeCardBtn } from "../components/styles/ButtonS";
 import { ArrowCircleLeft, Heart } from "@phosphor-icons/react";
 import { AppContextComp } from "../context/AppProvider";
 import { Col, Row } from "react-bootstrap";
+import { RecipeCardH4 } from "../components/styles/HeaderS";
 
 const Favorites = () => {
   const navigate = useNavigate();
@@ -43,26 +45,10 @@ const Favorites = () => {
         {favorites.map((recipe, index) => (
           <Col md={6} lg={4} xxl={3} key={index} style={{ margin: ".5rem 0" }}>
             <RecipeCardContainerS recipe>
-              <h4
-                style={{
-                  height: "50px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                {recipe.label}
-              </h4>
-              <div
-                style={{
-                  width: "250px",
-                  height: "250px",
-                  overflow: "hidden",
-                  margin: "1rem",
-                }}
-              >
+              <RecipeCardH4>{recipe.label}</RecipeCardH4>
+              <RecipeCardImgContainerS>
                 <RecipeCardImg src={recipe.image} alt={`${recipe.label}-img`} />
-              </div>
+              </RecipeCardImgContainerS>
               <div className="buttons">
                 <RecipeCardBtn
                   onClick={() =>
@@ -75,7 +61,7 @@ const Favorites = () => {
                   size={32}
                   color="#e84b11"
                   weight={"fill"}
-                  style={{ marginLeft: ".5rem" }}
+                  style={{ marginLeft: ".5rem", cursor: "pointer" }}
                   onClick={() => handleUnFavorite(recipe.label)}
                 />
               </div>

@@ -5,19 +5,15 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { FooterContainerS } from "./styles/ContainerS";
 import { FooterLi, FooterUl } from "./styles/ListS";
+import { FooterCopyrightH4 } from "./styles/HeaderS";
 
 const Footer = () => {
   return (
     <FooterContainerS>
       <div className="copyright">
-        <h4
-          style={{
-            color: "rgba(232, 51, 48, 1)",
-            borderBottom: "1px solid gray",
-          }}
-        >
+        <FooterCopyrightH4>
           Copyright &copy; omrfrkcpr {new Date().getFullYear()}
-        </h4>
+        </FooterCopyrightH4>
       </div>
       <FooterUl className="social-media">
         <FooterLi>

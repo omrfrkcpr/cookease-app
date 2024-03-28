@@ -44,7 +44,7 @@ const About = () => {
           </p>
         </div>
         <div style={{ textAlign: "center", marginTop: "2rem" }}>
-          <AboutH3and4 style={{ fontSize: "1.3rem" }}>
+          <AboutH3and4 lastChild>
             Thank you for choosing CookEase! We hope you have wonderful culinary
             experiences in the kitchen.{" "}
             {<Heart size={32} color="#6b675f" weight="fill" />}

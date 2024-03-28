@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-
 export const MoreHyperLinkS = styled.a`
   border: none;
   width: 120px;
-  margin: auto;
+  margin: auto auto auto 1rem;
+  text-decoration: none;
   padding: 0.3rem 1rem;
   font-size: 1.2rem;
   border-radius: 12px;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NotFoundContainerS, PageContainerS } from "./styles/ContainerS";
 import { Navigate } from "react-router-dom";
+import { NotFoundH1 } from "./styles/HeaderS";
 
 const NotFound = () => {
   const [count, setCount] = useState(5);
@@ -17,12 +18,9 @@ const NotFound = () => {
     return <Navigate to="/home" />;
   }
   return (
-    <PageContainerS
-      notFound
-      style={{ textAlign: "center", paddingTop: "3rem" }}
-    >
+    <PageContainerS notFound>
       <NotFoundContainerS>
-        <h1 style={{ color: "#1b2e35" }}>OOPS! PAGE NOT FOUND</h1>
+        <NotFoundH1>OOPS! PAGE NOT FOUND</NotFoundH1>
         <p>
           Within <strong>{count}</strong> seconds, you will be redirected to the
           home page!

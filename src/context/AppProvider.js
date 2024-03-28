@@ -22,6 +22,16 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const clearFavoritesByLogOut = () => {
+    if (!isLoggedIn) {
+      setFavorites([]);
+    }
+  };
+
+  useEffect(() => {
+    clearFavoritesByLogOut();
+  }, [isLoggedIn]);
+
   const removeFromFavorites = (recipeLabel) => {
     const updatedFavorites = favorites.filter(
       (favorite) => favorite.label !== recipeLabel

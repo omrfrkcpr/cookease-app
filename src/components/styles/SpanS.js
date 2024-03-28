@@ -22,3 +22,18 @@ export const FavoritesSpan = styled.span`
     font-size: 0.7rem;
   }
 `;
+
+export const CousineSpan = styled.span`
+  font-size: 1.5rem;
+  margin-top: 0.3rem;
+`;
+
+export const CousineSpanValue = styled.span`
+  color: indianred;
+  font-weight: bolder;
+`;
+
+export const NutrientsLabelSpan = styled.span`
+  color: indianred;
+  font-weight: bolder;
+`;
