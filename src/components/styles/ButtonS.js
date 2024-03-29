@@ -114,7 +114,6 @@ export const PasswordVisibleBtn = styled.button`
   position: absolute;
   top: 30px;
   right: 10px;
-  margin-top: 0.1rem;
 `;
 
 export const HelpBtns = styled.button`
