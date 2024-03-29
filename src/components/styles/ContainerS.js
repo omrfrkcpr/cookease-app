@@ -184,12 +184,18 @@ export const LoginFormContainerS = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   padding: 2rem 0;
+  @media screen and (max-width: ${({ theme }) => theme.responsiveExtraSmall}) {
+    padding: 0.5rem 0;
+  }
 `;
 
 export const FormS = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  @media screen and (max-width: ${({ theme }) => theme.responsiveExtraSmall}) {
+    gap: 0.3rem;
+  }
 `;
 
 export const RecipeCardImgContainerS = styled.div`

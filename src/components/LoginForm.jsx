@@ -51,9 +51,9 @@ const LoginForm = ({ formType }) => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 700) {
-        setIconSize(64);
-      } else if (window.innerWidth < 500) {
         setIconSize(48);
+      } else if (window.innerWidth < 500) {
+        setIconSize(32);
       } else {
         setIconSize(128);
       }

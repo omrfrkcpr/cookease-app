@@ -39,8 +39,11 @@ export const FormH3 = styled.h3`
   ${centerAlign}
   ${responsiveFontSize}
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   color: #6b675f;
+  @media screen and (max-width: ${({ theme }) => theme.responsiveExtraSmall}) {
+    margin-bottom: 0.5rem;
+  }
 `;
 
 export const RecipeCardH4 = styled.h4`
