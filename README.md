@@ -8,6 +8,8 @@ This single-page react recipe application is a platform where users can find var
 
 ## Outcome
 
+![cookease-app](https://github.com/omrfrkcpr/cookease-app/assets/77440899/5216f0b6-868b-4ed7-aac7-4b8cd3b8c528)
+
 ## Project Planning & Management
 
 **Epic User Story:** As a user of the recipe app, I want to be able to browse recipes, save my favorite recipes, view detailed information about each recipe, and navigate through different pages of the app seamlessly. 🎖️
