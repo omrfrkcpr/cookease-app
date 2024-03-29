@@ -239,7 +239,7 @@ const LoginForm = ({ formType }) => {
               </div>
             ) : (
               <div style={{ marginTop: "1rem" }}>
-                Need Another Account?{" "}
+                Need Another Account? <br />
                 <HelpBtns onClick={() => handleAnotherAccount()}>
                   Create Account
                 </HelpBtns>

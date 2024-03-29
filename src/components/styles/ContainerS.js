@@ -4,7 +4,6 @@ import bgImg from "../../assets/details-bg.jpg";
 import aboutBg from "../../assets/about-bg.jpg";
 import notFound from "../../assets/404.avif";
 import loginBg from "../../assets/login-bg.gif";
-import cookie from "../../assets/cookie.png";
 
 const centerAlign = css`
   display: flex;
