@@ -38,7 +38,7 @@ const LoginForm = ({ formType }) => {
   const [isForgot, setIsForgot] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmVisible, setConfirmVisible] = useState(false);
-  const [iconSize, setIconSize] = useState(128);
+  const [iconSize, setIconSize] = useState(48);
 
   const handlePasswordToggle = () => {
     setPasswordVisible(!passwordVisible);
@@ -51,9 +51,9 @@ const LoginForm = ({ formType }) => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 700) {
-        setIconSize(48);
+        setIconSize(64);
       } else if (window.innerWidth < 500) {
-        setIconSize(32);
+        setIconSize(48);
       } else {
         setIconSize(128);
       }
