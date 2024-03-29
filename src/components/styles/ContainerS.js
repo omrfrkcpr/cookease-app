@@ -183,7 +183,7 @@ export const LoginFormContainerS = styled.div`
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  padding: 1rem 0;
+  padding: 2rem 0;
 `;
 
 export const FormS = styled.form`

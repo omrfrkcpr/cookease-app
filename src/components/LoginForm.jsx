@@ -161,14 +161,14 @@ const LoginForm = ({ formType }) => {
 
   return (
     <LoginFormContainerS>
-      <div style={{ marginBottom: "1.5rem" }}>
+      <div>
         {formType === "login" ? (
           <UserCircle size={iconSize} color="#6b675f" />
         ) : (
           <UserCirclePlus size={iconSize} color="#6b675f" />
         )}
       </div>
-      <FormH3 style={{ color: "black" }}>Cookease App</FormH3>
+      <FormH3>Cookease App</FormH3>
       <FormS onSubmit={handleSubmit}>
         <CenterAlignForm>
           <FormLabelS htmlFor="username">Username*</FormLabelS>
@@ -245,7 +245,7 @@ const LoginForm = ({ formType }) => {
                 </HelpBtns>
               </div>
             )}
-            <div style={{ marginTop: "1rem" }}>
+            <div>
               Forgot Password?{" "}
               <HelpBtns onClick={() => handleGetInfo()}>Get Info</HelpBtns>
             </div>
