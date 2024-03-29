@@ -75,10 +75,7 @@ export const PageContainerS = styled.div`
   text-align: ${(props) => props.notFound && "center"};
   @media screen and (max-width: ${({ theme }) => theme.responsiveSmall}) {
     padding: 0rem;
-    min-height: ${(props) =>
-      props.login || props.signup
-        ? "calc(100vh - 323px)"
-        : "calc(100vh - 236px)"};
+    min-height: calc(100vh - 300px);
   }
   @media screen and (max-width: ${({ theme }) => theme.responsiveExtraSmall}) {
     min-height: ${(props) =>
@@ -180,13 +177,13 @@ export const LoginFormContainerS = styled.div`
   flex-direction: column;
   width: 70%;
   max-width: 400px;
-  max-height: 80%;
+  height: fit-content;
   background-color: white;
   box-shadow: 2px 2px 8px black;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 600px;
+  padding: 1rem 0;
 `;
 
 export const FormS = styled.form`

@@ -73,7 +73,7 @@ export const LoginBtn = styled.button`
   border: none;
   border-radius: 10px;
   padding: 0.2rem 0.8rem;
-  margin: 1rem auto;
+  margin: 0 auto;
   background-color: ${({ login }) => (login ? "#f7c006" : "lightgreen")};
   &:hover {
     color: white;
