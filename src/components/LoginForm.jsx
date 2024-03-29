@@ -234,19 +234,20 @@ const LoginForm = ({ formType }) => {
           <div>
             {isRegistered === false ? (
               <div style={{ marginTop: "1rem" }}>
-                Need An Account?{" "}
+                Need An Account?
                 <HelpBtns onClick={() => navigate("/signup")}>Sign Up</HelpBtns>
               </div>
             ) : (
               <div style={{ marginTop: "1rem" }}>
-                Need Another Account? <br />
+                Need Another Account?
+                <br />
                 <HelpBtns onClick={() => handleAnotherAccount()}>
                   Create Account
                 </HelpBtns>
               </div>
             )}
             <div>
-              Forgot Password?{" "}
+              Forgot Password?
               <HelpBtns onClick={() => handleGetInfo()}>Get Info</HelpBtns>
             </div>
           </div>
